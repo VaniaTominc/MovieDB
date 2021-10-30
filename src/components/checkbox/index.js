@@ -1,16 +1,17 @@
 import React from "react"
 import styled from 'styled-components'
 
-export default class CheckBox extends React.Component {
+const CheckBox = () => {
   // Create a custom checkbox component
   
-  render () {
-    return (
-      <CheckboxCont>
-      </CheckboxCont>
-    )
-  }
+  return (
+    <CheckboxCont>
+    </CheckboxCont>
+  )
 }
+
+
+export default CheckBox
 
 const CheckboxCont = styled.div`
   position: relative;

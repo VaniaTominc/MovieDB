@@ -3,14 +3,23 @@ import React from "react"
 
 // import Checkbox from "../checkbox"
 
-export default class ExpandableFilter extends React.Component {
-  constructor (props) {
-    super(props);
+const ExpandableFilter = () => {
 
-    this.state = {
-      filtersShown: false
-    };
-  }
+  // Original code:
+  // constructor (props) {
+  //   super(props);
 
-  // You need to create your own checkbox component with a custom checkmark
+  //   this.state = {
+  //     filtersShown: false
+  //   };
+  // }
+
+  // ! You need to create your own checkbox component with a custom checkmark
+
+  return (
+    <h1>ExpandableFilter Component</h1>
+  )
+
 }
+
+export default ExpandableFilter

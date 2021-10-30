@@ -1,20 +1,20 @@
 import React from "react"
 import styled from 'styled-components'
 
-export default class MovieItem extends React.Component {
+const MovieItem = () => {
 
-  render () {
-    return (
-      // Complete the MovieItem component
-      <MovieItemWrapper>
-        <LeftCont>
-        </LeftCont>
-        <RightCont>
-        </RightCont>
-      </MovieItemWrapper>
-    )
-  }
+  return (
+    // Complete the MovieItem component
+    <MovieItemWrapper>
+      <LeftCont>
+      </LeftCont>
+      <RightCont>
+      </RightCont>
+    </MovieItemWrapper>
+  )
 }
+
+export default MovieItem
 
 const MovieItemWrapper = styled.div`
   position: relative;

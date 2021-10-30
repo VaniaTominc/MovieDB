@@ -7,34 +7,35 @@ import * as colors from "../../colors"
 // import Arrow from "../../images/arrow-icon.png"
 // import SearchWhite from "../../images/search-icon-white.png"
 
-export default class SideNavBar extends React.Component {
+const SideNavBar = () => {
+
+  // const { isOpen } = this.state           Original code, please change it to hooks
 
   /* Write the necessary functions to show and hide the side bar on small devices */
 
-  render () {
-    const { isOpen } = this.state;
-
-    return (
-      <SideNavBarCont className={isOpen ? 'visible' : ''}>
-        {/* Implement a hamburger icon slide in effect for small devices */}
-        <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
-          Wesley
-          <NavIcon arrow></NavIcon>
-        </SideNavMainLink>
-        <SideNavMainLink className="menu_nav_link" to="/discover">
-          Discover
-          <NavIcon search></NavIcon>
-        </SideNavMainLink>
-        <SideNavHeader><HeaderText>Watched</HeaderText></SideNavHeader>
-        <NavLink className="menu_nav_link" to="/watched/movies">Movies</NavLink>
-        <NavLink className="menu_nav_link" to="/watched/tv-shows">Tv Shows</NavLink>
-        <SideNavHeader><HeaderText>Saved</HeaderText></SideNavHeader>
-        <NavLink className="menu_nav_link" to="/saved/movies">Movies</NavLink>
-        <NavLink className="menu_nav_link" to="/saved/tv-shows">Tv Shows</NavLink>
-      </SideNavBarCont>
-    );
-  }
+  return (
+    // <SideNavBarCont className={isOpen ? 'visible' : ''}>     Original code
+    <SideNavBarCont>
+      {/* Implement a hamburger icon slide in effect for small devices */}
+      <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
+        Wesley
+        <NavIcon arrow></NavIcon>
+      </SideNavMainLink>
+      <SideNavMainLink className="menu_nav_link" to="/discover">
+        Discover
+        <NavIcon search></NavIcon>
+      </SideNavMainLink>
+      <SideNavHeader><HeaderText>Watched</HeaderText></SideNavHeader>
+      <NavLink className="menu_nav_link" to="/watched/movies">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/watched/tv-shows">Tv Shows</NavLink>
+      <SideNavHeader><HeaderText>Saved</HeaderText></SideNavHeader>
+      <NavLink className="menu_nav_link" to="/saved/movies">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/saved/tv-shows">Tv Shows</NavLink>
+    </SideNavBarCont>
+  )
 }
+
+export default SideNavBar 
 
 const SideNavBarCont = styled.div`
   position: fixed;
