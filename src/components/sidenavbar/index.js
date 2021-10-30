@@ -1,10 +1,11 @@
-import React from "react";
-import styled, { css } from 'styled-components';
-import { NavLink as Link } from "react-router-dom";
+import React from "react"
+// import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { NavLink as Link } from "react-router-dom"
 
-import * as colors from "../../colors";
-import Arrow from "../../images/arrow-icon.png";
-import SearchWhite from "../../images/search-icon-white.png";
+import * as colors from "../../colors"
+// import Arrow from "../../images/arrow-icon.png"
+// import SearchWhite from "../../images/search-icon-white.png"
 
 export default class SideNavBar extends React.Component {
 

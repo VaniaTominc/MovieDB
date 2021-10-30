@@ -1,5 +1,5 @@
-import React from "react";
-import styled from 'styled-components';
+import React from "react"
+import styled from 'styled-components'
 
 export default class CheckBox extends React.Component {
   // Create a custom checkbox component

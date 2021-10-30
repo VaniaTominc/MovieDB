@@ -1,11 +1,11 @@
-import React from "react";
-import styled from 'styled-components';
+import React from "react"
+import styled from 'styled-components'
 
-import * as colors from "../../colors";
-import * as fetcher from "../../fetcher";
+// import * as colors from "../../colors"
+// import * as fetcher from "../../fetcher"
 
-import SearchFilters from "../../components/searchfilter";
-import MovieList from "../../components/movielist";
+// import SearchFilters from "../../components/searchfilter"
+// import MovieList from "../../components/movielist"
 
 export default class Discover extends React.Component {
   constructor (props) {
@@ -34,30 +34,30 @@ export default class Discover extends React.Component {
     };
   }
 
-  // Write a function to preload the popular movies when page loads & get the movie genres
+  // ! Write a function to preload the popular movies when page loads & get the movie genres
 
-  // Write a function to trigger the API request and load the search results based on the keyword and year given as parameters
+  // ! Write a function to trigger the API request and load the search results based on the keyword and year given as parameters
 
   render () {
-    const { genreOptions, languageOptions, ratingOptions, totalCount, results } = this.state;
+    // const { genreOptions, languageOptions, ratingOptions, totalCount, results } = this.state;
 
     return (
       <DiscoverWrapper>
         <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
         <MovieFilters>
-          <SearchFilters 
+          {/* <SearchFilters 
             genres={genreOptions} 
             ratings={ratingOptions}  
             languages={languageOptions}
             searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
-          />
+          /> */}
         </MovieFilters>
         <MovieResults>
-          { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
-          <MovieList 
+          {/* { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>} */}
+          {/* <MovieList 
             movies={results || []}
             genres={genreOptions || []}
-          />
+          /> */}
         </MovieResults>
       </DiscoverWrapper>
     )
@@ -68,9 +68,9 @@ const DiscoverWrapper = styled.main`
   padding: 60px 35px;
 `
 
-const TotalCounter = styled.div`
-  font-weight: 900;
-`
+// const TotalCounter = styled.div`
+//   font-weight: 900;
+// `
 
 const MovieResults = styled.div`
 
