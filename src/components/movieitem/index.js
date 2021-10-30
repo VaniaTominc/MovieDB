@@ -7,8 +7,10 @@ const MovieItem = () => {
     // Complete the MovieItem component
     <MovieItemWrapper>
       <LeftCont>
+        <h2>Hello</h2>
       </LeftCont>
       <RightCont>
+        <h2>Hello Two</h2>
       </RightCont>
     </MovieItemWrapper>
   )

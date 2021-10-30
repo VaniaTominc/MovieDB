@@ -6,6 +6,7 @@ const CheckBox = () => {
   
   return (
     <CheckboxCont>
+      <h1>I am CheckBox component</h1>
     </CheckboxCont>
   )
 }

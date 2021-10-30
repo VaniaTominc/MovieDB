@@ -14,15 +14,20 @@ const SearchFilters = () => {
     <Fragment>
       <h1>SearchFilters Component</h1>
       <FiltersWrapper>
+
+        {/* On the right side of page is the SearchBar component */}
         <SearchFiltersCont className="search_inputs_cont" marginBottom>
           {/* Implement a "SearchBar" component and re-use it for the keyword and the year inputs */}
           <SearchBar />
         </SearchFiltersCont>
+
+        {/* On the right side of page, under the SearchBar component */}
         <SearchFiltersCont>
           <CategoryTitle>Movies</CategoryTitle>
           {/* Implement a component called "ExpandableFilter" and apply it to all filter categories */}
           <ExpandableFilter />
         </SearchFiltersCont>
+
       </FiltersWrapper>
     </Fragment>
   )
