@@ -10,6 +10,7 @@ const MovieList = () => {
   return (
     <MoviesWrapper>
         {/* Finish the MovieItem component and use it here to display the movie results */}
+        <h1>MovieList component</h1>
         <MovieItem />
     </MoviesWrapper>
   )

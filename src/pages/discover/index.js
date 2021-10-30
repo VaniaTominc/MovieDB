@@ -4,8 +4,8 @@ import styled from 'styled-components'
 // import * as colors from "../../colors"
 // import * as fetcher from "../../fetcher"
 
-// import SearchFilters from "../../components/searchfilter"
-// import MovieList from "../../components/movielist"
+import SearchFilters from "../../components/searchfilter"
+import MovieList from "../../components/movielist"
 
 const Discover = () => {
 
@@ -45,19 +45,19 @@ const Discover = () => {
     <DiscoverWrapper>
       <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
       <MovieFilters>
-        {/* <SearchFilters 
-          genres={genreOptions} 
-          ratings={ratingOptions}  
-          languages={languageOptions}
+        <SearchFilters 
+          // genres={genreOptions} 
+          // ratings={ratingOptions}  
+          // languages={languageOptions}
           searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
-        /> */}
+        />
       </MovieFilters>
       <MovieResults>
         {/* { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>} */}
-        {/* <MovieList 
-          movies={results || []}
-          genres={genreOptions || []}
-        /> */}
+        <MovieList 
+          // movies={results || []}
+          // genres={genreOptions || []}
+        />
       </MovieResults>
     </DiscoverWrapper>
   )
