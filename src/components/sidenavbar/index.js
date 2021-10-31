@@ -24,7 +24,7 @@ const SideNavBar = () => {
           <img src={Arrow} alt="Arrow down" />
         </NavIcon>
       </SideNavMainLink>
-      <SideNavMainLink className="menu_nav_link" to="/discover" activeClassName="activated_background">
+      <SideNavMainLink className="menu_nav_link discover" to="/discover" activeClassName="activated_background">
         Discover
         {/* <NavIcon search></NavIcon> */}
         <NavIcon>
@@ -49,6 +49,10 @@ const SideNavBarCont = styled.div`
   width: 280px;
   height: 100%;
   background-color: ${colors.sideNavBar};
+
+  @media (max-width: 768px) {
+    right: -100%;
+  }
 `
 
 const SideNavMainLink = styled(Link)`

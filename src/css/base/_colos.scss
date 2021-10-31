@@ -11,3 +11,9 @@ $lightBackground: #f6f7f9;
 .activated_background_links {
   color: $primaryColor;
 }
+
+.discover {
+  @media (max-width: 768px) {
+    right: -100%;
+  }
+}

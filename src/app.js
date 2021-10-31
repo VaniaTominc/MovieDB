@@ -28,9 +28,13 @@ const App = () => {
 
 export default App
 
-
+// Originally only "padding-left: 280px". I added "padding-left: 0" for media query as the content was pushed to the right when on smaller screen / mobile.
 const ContentWrapper = styled.main`
   padding-left: 280px;
+
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `
 
 const PageContainer = styled.main`

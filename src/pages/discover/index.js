@@ -69,10 +69,16 @@ export default Discover
 
 
 // Originally it had only "padding: 60px 35px", I added the rest.
+// In media query I had to reposition elements once again by using different flex options.
 const DiscoverWrapper = styled.main`
   padding: 60px 35px;
   display: flex;
   flex-direction: row-reverse;
+
+  @media (max-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `
 // Originally it had only "font-weight: 900", I added the rest.
 const TotalCounter = styled.div`
@@ -93,7 +99,9 @@ const MovieFilters = styled.div`
 const MobilePageTitle = styled.header`
   display: none;
 
-  @media only screen and (max-width: 600px) {
+  @media (max-width: 768px) {
     display: block;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 `
