@@ -32,11 +32,11 @@ const SideNavBar = () => {
         </NavIcon>
       </SideNavMainLink>
       <SideNavHeader><HeaderText>Watched</HeaderText></SideNavHeader>
-      <NavLink className="menu_nav_link" to="/watched/movies" activeClassName="activated_background">Movies</NavLink>
-      <NavLink className="menu_nav_link" to="/watched/tv-shows" activeClassName="activated_background">Tv Shows</NavLink>
+      <NavLink className="menu_nav_link" to="/watched/movies" activeClassName="activated_background_links">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/watched/tv-shows" activeClassName="activated_background_links">Tv Shows</NavLink>
       <SideNavHeader><HeaderText>Saved</HeaderText></SideNavHeader>
-      <NavLink className="menu_nav_link" to="/saved/movies" activeClassName="activated_background">Movies</NavLink>
-      <NavLink className="menu_nav_link" to="/saved/tv-shows" activeClassName="activated_background">Tv Shows</NavLink>
+      <NavLink className="menu_nav_link" to="/saved/movies" activeClassName="activated_background_links">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/saved/tv-shows" activeClassName="activated_background_links">Tv Shows</NavLink>
     </SideNavBarCont>
   )
 }
@@ -66,14 +66,24 @@ const NavIcon = styled.div`
   top: 30%;
 `
 
+// Originally empty, I added styles.
 const SideNavHeader = styled.div`
-
+  margin: 0 0 10px 35px;
+  border-bottom: 1px solid #404e5f;
+  padding: 25px 0 5px;
+  font-size: 1.6em;
+  color: white;
 `
 
+// Originally empty, I added styles.
 const HeaderText = styled.div`
-
+  font-size: 1.6rem;
+  padding: 10px 0;
 `
-
+// Originally there was only "display:block". I added the rest
 const NavLink = styled(Link)`
   display: block;
+  margin-left: 35px;
+  padding: 5px 0;
+  font-size: 1.2rem;
 `
