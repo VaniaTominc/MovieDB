@@ -43,7 +43,7 @@ const Discover = () => {
 
   return (
     <DiscoverWrapper>
-      <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
+      <MobilePageTitle>Discover title - appears only in mobile mode</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
       <MovieFilters>
         <SearchFilters 
           // genres={genreOptions} 
@@ -67,9 +67,11 @@ const Discover = () => {
 export default Discover
 
 
-
+// Originally it had only "padding: 60px 35px", I added the rest.
 const DiscoverWrapper = styled.main`
   padding: 60px 35px;
+  display: flex;
+  flex-direction: row-reverse;
 `
 
 // const TotalCounter = styled.div`
@@ -77,13 +79,19 @@ const DiscoverWrapper = styled.main`
 // `
 
 const MovieResults = styled.div`
-
+  flex: 8;
 `
 
+// Originally empty, I added styles.
 const MovieFilters = styled.div`
-
+  flex: 2;
+  padding-left: 15px;
 `
 
 const MobilePageTitle = styled.header`
+  display: none;
 
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
 `
