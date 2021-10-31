@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { NavLink as Link } from "react-router-dom"
 
 import * as colors from "../../colors"
-// import Arrow from "../../images/arrow-icon.png"
-// import SearchWhite from "../../images/search-icon-white.png"
+import Arrow from "../../images/arrow-icon.png"
+import SearchWhite from "../../images/search-icon-white.png"
 
 const SideNavBar = () => {
 
@@ -19,11 +19,17 @@ const SideNavBar = () => {
       {/* Implement a hamburger icon slide in effect for small devices */}
       <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
         Wesley
-        <NavIcon arrow></NavIcon>
+        {/* <NavIcon arrow></NavIcon> */}
+        <NavIcon>
+          <img src={Arrow} alt="Arrow down" />
+        </NavIcon>
       </SideNavMainLink>
       <SideNavMainLink className="menu_nav_link" to="/discover">
         Discover
-        <NavIcon search></NavIcon>
+        {/* <NavIcon search></NavIcon> */}
+        <NavIcon>
+          <img src={SearchWhite} alt="Search icon" />
+        </NavIcon>
       </SideNavMainLink>
       <SideNavHeader><HeaderText>Watched</HeaderText></SideNavHeader>
       <NavLink className="menu_nav_link" to="/watched/movies">Movies</NavLink>
@@ -52,10 +58,11 @@ const SideNavMainLink = styled(Link)`
   font-size: 1.6em;
   font-weight: 700;
   color: white;
+  display: flex;
+  justify-content: space-between;
 `
 
 const NavIcon = styled.div`
-  position: absolute;
   right: 35px;
   top: 50%;
 `
