@@ -24,7 +24,7 @@ const SideNavBar = () => {
           <img src={Arrow} alt="Arrow down" />
         </NavIcon>
       </SideNavMainLink>
-      <SideNavMainLink className="menu_nav_link" to="/discover">
+      <SideNavMainLink className="menu_nav_link" to="/discover" activeClassName="activated_background">
         Discover
         {/* <NavIcon search></NavIcon> */}
         <NavIcon>
@@ -32,11 +32,11 @@ const SideNavBar = () => {
         </NavIcon>
       </SideNavMainLink>
       <SideNavHeader><HeaderText>Watched</HeaderText></SideNavHeader>
-      <NavLink className="menu_nav_link" to="/watched/movies">Movies</NavLink>
-      <NavLink className="menu_nav_link" to="/watched/tv-shows">Tv Shows</NavLink>
+      <NavLink className="menu_nav_link" to="/watched/movies" activeClassName="activated_background">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/watched/tv-shows" activeClassName="activated_background">Tv Shows</NavLink>
       <SideNavHeader><HeaderText>Saved</HeaderText></SideNavHeader>
-      <NavLink className="menu_nav_link" to="/saved/movies">Movies</NavLink>
-      <NavLink className="menu_nav_link" to="/saved/tv-shows">Tv Shows</NavLink>
+      <NavLink className="menu_nav_link" to="/saved/movies" activeClassName="activated_background">Movies</NavLink>
+      <NavLink className="menu_nav_link" to="/saved/tv-shows" activeClassName="activated_background">Tv Shows</NavLink>
     </SideNavBarCont>
   )
 }

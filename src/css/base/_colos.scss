@@ -4,6 +4,6 @@ $fontColor: #31475f;
 $primaryColor: #c4ca18;
 $lightBackground: #f6f7f9;
 
-.menu_nav_link:focus {
+.activated_background {
   background-color: $primaryColor;
 }
