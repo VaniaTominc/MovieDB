@@ -12,7 +12,7 @@ const SearchFilters = () => {
 
   return (
     <Fragment>
-      <h1>SearchFilters Component</h1>
+      {/* <h1>SearchFilters Component</h1> */}
       <FiltersWrapper>
 
         {/* On the right side of page is the SearchBar component */}
@@ -35,8 +35,10 @@ const SearchFilters = () => {
 
 export default SearchFilters
 
+// Originally it had only "position:relative", I added the rest.
 const FiltersWrapper = styled.div`
   position: relative;
+  padding-top: 40px;
 `
 
 const SearchFiltersCont = styled.div`

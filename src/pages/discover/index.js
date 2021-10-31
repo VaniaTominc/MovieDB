@@ -54,6 +54,7 @@ const Discover = () => {
       </MovieFilters>
       <MovieResults>
         {/* { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>} */}
+        <TotalCounter>This should show the number of found elements</TotalCounter>
         <MovieList 
           // movies={results || []}
           // genres={genreOptions || []}
@@ -73,10 +74,11 @@ const DiscoverWrapper = styled.main`
   display: flex;
   flex-direction: row-reverse;
 `
-
-// const TotalCounter = styled.div`
-//   font-weight: 900;
-// `
+// Originally it had only "font-weight: 900", I added the rest.
+const TotalCounter = styled.div`
+  font-weight: 900;
+  padding-bottom: 20px;
+`
 
 const MovieResults = styled.div`
   flex: 8;
