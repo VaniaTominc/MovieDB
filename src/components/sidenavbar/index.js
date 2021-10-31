@@ -58,13 +58,13 @@ const SideNavMainLink = styled(Link)`
   font-size: 1.6em;
   font-weight: 700;
   color: white;
-  display: flex;
-  justify-content: space-between;
+  
 `
 
 const NavIcon = styled.div`
+  position: absolute;
   right: 35px;
-  top: 50%;
+  top: 30%;
 `
 
 const SideNavHeader = styled.div`
