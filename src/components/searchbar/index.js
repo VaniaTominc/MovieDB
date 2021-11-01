@@ -10,10 +10,20 @@ const SearchBar = (props) => {
   // console.log('props >>>>', props.searchMovies())
 
   const [searchTerm, setSearchTerm] = useState()
+  const [searchYear, setSearchYear] = useState()
   const handleChange = event => {
     setSearchTerm(event.target.value)
-    props.searchMovies(searchTerm)
+    // props.searchMovies(searchTerm)
   }
+
+  const handleYear = event => {
+    setSearchYear(event.target.value)
+    console.log('typeof >>>>', typeof searchYear)
+    // console.log('event.target.value >>>', event.target.value)
+    // props.searchMovies(searchYear)
+  }
+
+  props.searchMovies(searchTerm, searchYear)
 
 
   return (
@@ -24,7 +34,7 @@ const SearchBar = (props) => {
       </InputText>
       <InputText className="positioning-lower-input">
         <LensIcon src={CalendarIcon} alt="Year of production" />
-        <Input type="number" min="1900" max="2099" step="1" placeholder="Search for movies" style={{width: '100%'}} />
+        <Input type="number" min="1900" max="2099" value={searchYear} onChange={handleYear} placeholder="Year of release" style={{width: '100%'}} />
       </InputText>
     </>
   )

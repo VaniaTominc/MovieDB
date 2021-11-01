@@ -15,13 +15,14 @@ const Discover = () => {
   const [results, setResults] = useState([])
   const [totalCount, setTotalCount] = useState(0)
   const [keyword, setKeyword] = useState('')
+  const [year, setYear] = useState('')
 
   useEffect(() => {
     const getData = async () => {
       try {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
-        const resultsData = await fetcher.moviesData(keyword)          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
+        const resultsData = await fetcher.moviesData(keyword, year)          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
         const totalCount = resultsData.total_results
         // console.log('totalCount >>>', totalCount)
         setGenresOptions(genresData)
@@ -33,7 +34,7 @@ const Discover = () => {
       }
     }
     getData()
-  }, [keyword])
+  }, [keyword, year])
 
   const ratingOptions = [
     { id: 7.5, name: 7.5 },
@@ -55,8 +56,9 @@ const Discover = () => {
 
   // ! Write a function to trigger the API request and load the search results based on the keyword and year given as parameter
 
-  const searchMovies = (item) => {
-    setKeyword(item)
+  const searchMovies = (keyword, year) => {
+    setKeyword(keyword)
+    setYear(year)
   }
 
   return (
@@ -67,7 +69,7 @@ const Discover = () => {
           genres={genreOptions} 
           ratings={ratingOptions}  
           languages={languageOptions}
-          searchMovies={(keyword) => searchMovies(keyword)}
+          searchMovies={(keyword, year) => searchMovies(keyword, year)}
         />
       </MovieFilters>
       <MovieResults>
