@@ -17,6 +17,7 @@ const SideNavBar = () => {
     // <SideNavBarCont className={isOpen ? 'visible' : ''}>     Original code
     <SideNavBarCont>
       {/* Implement a hamburger icon slide in effect for small devices */}
+      <HamburgerIcon>🏠</HamburgerIcon>
       <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
         Wesley
         {/* <NavIcon arrow></NavIcon> */}
@@ -90,4 +91,17 @@ const NavLink = styled(Link)`
   margin-left: 35px;
   padding: 5px 0;
   font-size: 1.2rem;
+`
+
+// I created this styled component.
+const HamburgerIcon = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    display: block;
+    left: 20px;
+    top: 15px;
+    font-size: 2rem;
+  }
 `

@@ -48,6 +48,7 @@ const FiltersWrapper = styled.div`
   }
 `
 
+// I added media query and used same logic as with "props => props.marginBottom ..."
 const SearchFiltersCont = styled.div`
   background-color: white;
   padding: 20px;

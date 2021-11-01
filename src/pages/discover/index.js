@@ -43,7 +43,7 @@ const Discover = () => {
 
   return (
     <DiscoverWrapper>
-      <MobilePageTitle>Discover title - appears only in mobile mode</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
+      <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
       <MovieFilters>
         <SearchFilters 
           // genres={genreOptions} 
@@ -76,6 +76,7 @@ const DiscoverWrapper = styled.main`
   flex-direction: row-reverse;
 
   @media (max-width: 768px) {
+    padding: 25px 20px;
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -103,5 +104,8 @@ const MobilePageTitle = styled.header`
     display: block;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-left: 60px;
+    font-size: 1.6rem;
+    margin-top: -5px 
   }
 `
