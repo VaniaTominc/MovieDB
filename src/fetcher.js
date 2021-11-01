@@ -12,7 +12,18 @@ export const popularMoviesData = async() => {
     // console.log('popularMoviesData >>>>', data.results)
     return data.results
   } catch(err) {
-    console.log('there is something wrong with the data >>>', err.message)
+    console.log('Error with popularMoviesData >>>>', err.message)
+  }
+}
+
+// Get movies
+// https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher               If there are more than two words, space between must be converted to + 
+export const moviesData = async(keyword) => {
+  try {
+    const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie${API_KEY}&query=${keyword}`)
+    return data.results
+  } catch(err) {
+    console.log('Error with moviesData >>>>', err.message)
   }
 }
 

@@ -14,14 +14,18 @@ const Discover = () => {
 
   const [popular, setPopular] = useState([])
   const [genreOptions, setGenresOptions] = useState([])
+  const [results, setResults] = useState([])
 
   useEffect(() => {
     const getData = async () => {
       try {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
+        const resultsData = await fetcher.moviesData("enemy+gates")          // For now hard coded keyword, later it needs to be replace with "keyword"
+        console.log('resultsData >>>', resultsData)
         setGenresOptions(genresData)
         setPopular(popularData)
+        setResults(resultsData)
       } catch(err) {
         console.log('I am causing problems inside Discover component >>>', err.message)
       }
