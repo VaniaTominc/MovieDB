@@ -74,13 +74,8 @@ const DiscoverWrapper = styled.main`
   padding: 60px 35px;
   display: flex;
   flex-direction: row-reverse;
-
-  @media (max-width: 768px) {
-    padding: 25px 20px;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 `
+
 // Originally it had only "font-weight: 900", I added the rest.
 const TotalCounter = styled.div`
   font-weight: 900;
