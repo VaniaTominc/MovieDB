@@ -20,13 +20,15 @@ const Discover = () => {
       try {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
-        setGenresOptions(genreOptions)
+        setGenresOptions(genresData)
+        setPopular(popularData)
       } catch(err) {
         console.log('I am causing problems inside Discover component >>>', err.message)
       }
     }
     getData()
-  })
+  }, [])
+
 
 
   // constructor (props) {
@@ -80,7 +82,7 @@ const Discover = () => {
       <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
       <MovieFilters>
         <SearchFilters 
-          // genres={genreOptions} 
+          genres={genreOptions} 
           ratings={ratingOptions}  
           languages={languageOptions}
           searchMovies={(keyword, year) => this.searchMovies(keyword, year)}

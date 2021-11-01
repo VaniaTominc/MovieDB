@@ -6,10 +6,11 @@ import styled, { css } from 'styled-components'
 import ExpandableFilter from "../../components/expandablefilter"
 import SearchBar from "../../components/searchbar"
 
-const SearchFilters = ({languages, ratings}) => {
+const SearchFilters = ({languages, ratings, genres}) => {
 
   // console.log('incoming languages >>>>', languages)
   // console.log('incoming ratings >>>>', ratings)
+  // console.log('genres >>>', genres)
 
   // const { genres, ratings, languages, searchMovies } = this.props;
 
@@ -29,6 +30,7 @@ const SearchFilters = ({languages, ratings}) => {
           <CategoryTitle>Movies</CategoryTitle>
           {/* Implement a component called "ExpandableFilter" and apply it to all filter categories */}
           <ExpandableFilter 
+            genres={genres}
             languages={languages}
             ratings={ratings}
           />

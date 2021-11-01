@@ -5,10 +5,11 @@ import CheckBox from "../checkbox"
 
 import Checkbox from "../checkbox"
 
-const ExpandableFilter = ({languages, ratings}) => {
+const ExpandableFilter = ({languages, ratings, genres}) => {
 
   // console.log('languages in ExpandableFilter >>>', languages)
   // console.log('ratings in ExpandableFilter >>>', ratings)
+  // console.log('genres inside ExpandableFilter >>>', genres)
 
 
   // const [filtersShown, setFiltersShown] = useState(false)
@@ -21,7 +22,9 @@ const ExpandableFilter = ({languages, ratings}) => {
 
         <details>
           <summary>Select genre(s)</summary>
-          <Checkbox />
+          {genres && genres.map(item => {
+            return <CheckBox key={item.id} { ...item} />
+          })}
         </details>
 
         <details>
