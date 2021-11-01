@@ -8,17 +8,17 @@ import Discover from "./pages/discover"
 
 import './css/app.css'
 
-
 const App = () => {
+
   return (
     <Router>
       <PageContainer>
         {/* <SideNavBar {...this.props} /> */}
         <SideNavBar />
         <ContentWrapper>
-          <Switch>
+          <Switch>            
             {/* <Route path="/discover" component={Discover} {...this.props}/>      Original code */}
-            <Discover />
+            <Discover path="/discover" />
           </Switch>
         </ContentWrapper>
       </PageContainer>

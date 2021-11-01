@@ -6,13 +6,9 @@ import styled, { css } from 'styled-components'
 import ExpandableFilter from "../../components/expandablefilter"
 import SearchBar from "../../components/searchbar"
 
-const SearchFilters = ({languages, ratings, genres}) => {
+const SearchFilters = ({languages, ratings, genres, searchMovies}) => {
 
-  // console.log('incoming languages >>>>', languages)
-  // console.log('incoming ratings >>>>', ratings)
-  // console.log('genres >>>', genres)
-
-  // const { genres, ratings, languages, searchMovies } = this.props;
+  // console.log('searchMovies insideFilters >>>>', searchMovies)
 
   return (
     <Fragment>
@@ -22,7 +18,7 @@ const SearchFilters = ({languages, ratings, genres}) => {
         {/* On the right side of page is the SearchBar component */}
         <SearchFiltersCont className="search_inputs_cont" marginBottom>
           {/* Implement a "SearchBar" component and re-use it for the keyword and the year inputs */}
-          <SearchBar />
+          <SearchBar searchMovies={searchMovies} />
         </SearchFiltersCont>
 
         {/* On the right side of page, under the SearchBar component */}

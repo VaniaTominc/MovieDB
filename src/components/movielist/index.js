@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 import MovieItem from '../movieitem'
 
-const MovieList = ({movies}) => {
+const MovieList = ({popular, movies, genres}) => {
 
   // console.log('Incoming movies inside MovieList component >>>>', movies)
+  // console.log('Incoming genres in MovieList >>>>', genres)
 
   // const { movies, genres } = this.props
 
@@ -13,9 +14,25 @@ const MovieList = ({movies}) => {
     <MoviesWrapper>
         {/* Finish the MovieItem component and use it here to display the movie results */}
         {/* <h1>MovieList component</h1> */}
-        {movies && movies.map(item => {
+        {/* {movies && movies.map(item => {
           return <MovieItem key={item.id} { ...item} />
-        })}
+        })} */}
+        {
+          <>{popular && popular.map(item => {
+            return <MovieItem key={item.id} { ...item} />
+          })}
+          </>
+          &&
+          <>{movies && movies.map(item => {
+            return <MovieItem key={item.id} { ...item} />
+          })}
+          </>
+        }
+        {/* <MovieItem 
+          movies={movies}
+          genres={genres}
+          popular={popular} 
+        /> */}
     </MoviesWrapper>
   )
 }

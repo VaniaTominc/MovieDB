@@ -10,19 +10,18 @@ import MovieList from "../../components/movielist"
 
 const Discover = () => {
 
-  // ! Original code, please change it to hooks.
-
   const [popular, setPopular] = useState([])
   const [genreOptions, setGenresOptions] = useState([])
   const [results, setResults] = useState([])
   const [totalCount, setTotalCount] = useState(0)
+  const [keyword, setKeyword] = useState('')
 
   useEffect(() => {
     const getData = async () => {
       try {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
-        const resultsData = await fetcher.moviesData("jack", "2020")          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
+        const resultsData = await fetcher.moviesData(keyword)          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
         const totalCount = resultsData.total_results
         // console.log('totalCount >>>', totalCount)
         setGenresOptions(genresData)
@@ -34,17 +33,7 @@ const Discover = () => {
       }
     }
     getData()
-  }, [])
-
-
-
-  // constructor (props) {
-  //   super(props);
-
-  //   this.state = {
-  //     keyword: '',
-  //   }
-  // }
+  }, [keyword])
 
   const ratingOptions = [
     { id: 7.5, name: 7.5 },
@@ -64,7 +53,11 @@ const Discover = () => {
 
   // ! Write a function to preload the popular movies when page loads & get the movie genres
 
-  // ! Write a function to trigger the API request and load the search results based on the keyword and year given as parameters
+  // ! Write a function to trigger the API request and load the search results based on the keyword and year given as parameter
+
+  const searchMovies = (item) => {
+    setKeyword(item)
+  }
 
   return (
     <DiscoverWrapper>
@@ -74,14 +67,15 @@ const Discover = () => {
           genres={genreOptions} 
           ratings={ratingOptions}  
           languages={languageOptions}
-          searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
+          searchMovies={(keyword) => searchMovies(keyword)}
         />
       </MovieFilters>
       <MovieResults>
         { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
         <MovieList 
+          // popular={popular || []}
           movies={results || []}
-          // genres={genreOptions || []}
+          genres={genreOptions || []}
         />
       </MovieResults>
     </DiscoverWrapper>

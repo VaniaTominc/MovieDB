@@ -1,17 +1,26 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from 'styled-components'
 
 import * as colors from "../../colors"
 import SearchIcon from "../../images/search-icon-yellow.png"
 import CalendarIcon from "../../images/year-icon.png"
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
+  // console.log('props >>>>', props.searchMovies())
+
+  const [searchTerm, setSearchTerm] = useState()
+  const handleChange = event => {
+    setSearchTerm(event.target.value)
+    props.searchMovies(searchTerm)
+  }
+
 
   return (
     <>
       <InputText>
         <LensIcon src={SearchIcon} alt="Search icon" />
-        <Input type="text" placeholder="Search for movies" />
+        <Input type="text" placeholder="Search for movies" value={searchTerm} onChange={handleChange} />
       </InputText>
       <InputText className="positioning-lower-input">
         <LensIcon src={CalendarIcon} alt="Year of production" />

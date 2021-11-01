@@ -1,34 +1,61 @@
+/* eslint-disable no-unused-vars */
 import React from "react"
 import styled from 'styled-components'
 
 import * as colors from "../../colors"
 
-const MovieItem = (movies) => {
+const MovieItem = ({backdrop_path, original_title, overview, release_date, vote_average}) => {
 
-  // console.log('Incoming movies inside MovieItem component >>>>', movies)
+  // console.log('movies >>>>', movies)
 
   return (
     // Complete the MovieItem component
-    <MovieItemWrapper>
-      <LeftCont>
-        {/* <h2>Picture of movie / series</h2> */}
-        <StyledImage src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`} alt={movies.original_title} />    
-      </LeftCont>
-      <RightCont>
-        <HeadingRating>
-          <Heading>{movies.original_title}</Heading>
-          <Rating>7.5</Rating>
-        </HeadingRating>
-        <Genre>{movies.genre_id}</Genre>
-        <OverviewWrapper>
-          <OverviewContent>
-            {movies.overview}
-          </OverviewContent>
-          <ReleaseContent>{movies.release_date}</ReleaseContent>
-        </OverviewWrapper>
-      </RightCont>
-    </MovieItemWrapper>
 
+
+      <MovieItemWrapper> 
+        <LeftCont>
+          {/* <h2>Picture of movie / series</h2> */}
+          <StyledImage src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={original_title} />        {/* For now hard coded image */}
+        </LeftCont>
+        <RightCont>
+          <HeadingRating>
+            <Heading>{original_title}</Heading>
+            <Rating>{vote_average}</Rating>
+          </HeadingRating>
+          {/* <Genre>{genres.map(i => i.id.filter(j => j === item[j].genre_ids ? j.name : ''))}</Genre> */}
+          {/* <Genre>{genres.map(i => typeof i)}</Genre> */}
+          {/* <Genre>{genres.map(i => typeof i.name)}</Genre> */}
+          {/* <Genre>{item.map(j => j.genre_ids)}</Genre> */}
+          <OverviewWrapper> 
+            <OverviewContent>
+              {overview}
+            </OverviewContent>
+            <ReleaseContent>{release_date}</ReleaseContent>
+          </OverviewWrapper>
+        </RightCont>
+      </MovieItemWrapper>
+
+
+    // <MovieItemWrapper>
+    //   <LeftCont>
+    //     {/* <h2>Picture of movie / series</h2> */}
+    //     <StyledImage src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`} alt={movies.original_title} />        {/* For now hard coded image */}
+    //   </LeftCont>
+    //   <RightCont>
+    //     <HeadingRating>
+    //       <Heading>{movies.original_title}</Heading>
+    //       <Rating>7.5</Rating>
+    //     </HeadingRating>
+    //     {/* {genres && genres.map(item => <Genre key={item.id}>{item.name}</Genre> )} */}
+    //     <Genre>{movies.genre_ids}</Genre>
+    //     <OverviewWrapper>
+    //       <OverviewContent>
+    //         {movies.overview}
+    //       </OverviewContent>
+    //       <ReleaseContent>{movies.release_date}</ReleaseContent>
+    //     </OverviewWrapper>
+    //   </RightCont>
+    // </MovieItemWrapper>
   )
 }
 
