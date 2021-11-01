@@ -39,7 +39,7 @@ export default SearchFilters
 // In media query I had to use flex to reposition elements.
 const FiltersWrapper = styled.div`
   position: relative;
-  padding-top: 40px;
+  padding-top: 36px;
 
   @media (max-width: 768px) {
     display: flex;
@@ -51,7 +51,7 @@ const FiltersWrapper = styled.div`
 // I added media query and used same logic as with "props => props.marginBottom ..."
 const SearchFiltersCont = styled.div`
   background-color: white;
-  padding: 20px;
+  padding: 12px 20px 20px;
   border-radius: 3px;
   transition: all .3s ease-in-out;
   

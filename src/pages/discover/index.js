@@ -54,7 +54,7 @@ const Discover = () => {
       </MovieFilters>
       <MovieResults>
         {/* { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>} */}
-        <TotalCounter>This should show the number of found elements</TotalCounter>
+        <TotalCounter>1054 movies</TotalCounter>
         <MovieList 
           // movies={results || []}
           // genres={genreOptions || []}
@@ -71,15 +71,16 @@ export default Discover
 // Originally it had only "padding: 60px 35px", I added the rest.
 // In media query I had to reposition elements once again by using different flex options.
 const DiscoverWrapper = styled.main`
-  padding: 60px 35px;
+  padding: 47px 50px;
   display: flex;
   flex-direction: row-reverse;
 `
 
 // Originally it had only "font-weight: 900", I added the rest.
 const TotalCounter = styled.div`
-  font-weight: 900;
+  font-weight: 200;
   padding-bottom: 20px;
+  font-size: .8rem;
 `
 
 const MovieResults = styled.div`

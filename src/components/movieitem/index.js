@@ -1,6 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
 
+import * as colors from "../../colors"
+
 const MovieItem = () => {
 
   return (
@@ -12,10 +14,10 @@ const MovieItem = () => {
       </LeftCont>
       <RightCont>
         <HeadingRating>
-          <h2>Heading</h2>
-          <h2>Rating</h2>
+          <Heading>Bad Genius</Heading>
+          <Rating>7.5</Rating>
         </HeadingRating>
-        <Genre>Genre</Genre>
+        <Genre>Action | Drama | Comedy</Genre>
         <OverviewWrapper>
           <OverviewContent>
             The Templeton brothers — Tim and his Boss Baby little bro Ted — have become adults and drifted away from each other. But a new boss baby with a cutting-edge approach and a can-do attitude is about to bring them together again … and inspire a new family business.
@@ -47,8 +49,8 @@ const RightCont = styled.div`
 
 // Created new styled component for the image
 const StyledImage = styled.img`
-  width: 200px;
-  height: 300px;
+  width: 130px;
+  height: 200px;
   object-fit: cover;
   padding: 20px;
 `
@@ -57,22 +59,47 @@ const HeadingRating = styled.div`
   display: flex;
   justify-content: space-between;
   padding-right: 20px;
+  align-item: flex-end;
+`
+
+const Heading = styled.h2`
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1;
+`
+
+const Rating = styled.h4`
+  border: 1px solid ${colors.primaryColor};
+  border-radius: 5px;
+  background-color: ${colors.primaryColor};
+  color: white;
+  padding: 4px;
+  font-size: .8rem;
+  line-height: 0;
+  display: flex;
+  align-items: center;
 `
 
 const OverviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: -12px;
 `
 
 const OverviewContent = styled.p`
   padding-right: 20px;
-  line-height: 1.5;
+  line-height: 1.3;
+  font-size: .9rem;
 `
 const ReleaseContent = styled.p`
   line-height: 0;
   margin-top: 3.8rem;
+  font-size: .75rem;
+  color: ${colors.primaryColor};
 `
 
 const Genre = styled.h4`
-margin-top: -.75rem;
+  color: ${colors.primaryColor};
+  font-size: .75rem;
+  margin-top: -.75rem;
 `
