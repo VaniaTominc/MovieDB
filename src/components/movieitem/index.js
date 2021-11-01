@@ -3,29 +3,32 @@ import styled from 'styled-components'
 
 import * as colors from "../../colors"
 
-const MovieItem = () => {
+const MovieItem = (movies) => {
+
+  // console.log('Incoming movies inside MovieItem component >>>>', movies)
 
   return (
     // Complete the MovieItem component
     <MovieItemWrapper>
       <LeftCont>
         {/* <h2>Picture of movie / series</h2> */}
-        <StyledImage src="https://image.tmdb.org/t/p/w500/8s4h9friP6Ci3adRGahHARVd76E.jpg" alt="test" />        {/* For now hard coded image */}
+        <StyledImage src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`} alt={movies.original_title} />    
       </LeftCont>
       <RightCont>
         <HeadingRating>
-          <Heading>Bad Genius</Heading>
+          <Heading>{movies.original_title}</Heading>
           <Rating>7.5</Rating>
         </HeadingRating>
-        <Genre>Action | Drama | Comedy</Genre>
+        <Genre>{movies.genre_id}</Genre>
         <OverviewWrapper>
           <OverviewContent>
-            The Templeton brothers — Tim and his Boss Baby little bro Ted — have become adults and drifted away from each other. But a new boss baby with a cutting-edge approach and a can-do attitude is about to bring them together again … and inspire a new family business.
+            {movies.overview}
           </OverviewContent>
-          <ReleaseContent>ReleaseDate</ReleaseContent>
+          <ReleaseContent>{movies.release_date}</ReleaseContent>
         </OverviewWrapper>
       </RightCont>
     </MovieItemWrapper>
+
   )
 }
 
@@ -36,7 +39,8 @@ const MovieItemWrapper = styled.div`
   position: relative;
   background-color: white;
   border-radius: 3px;
-  display: flex;                        
+  display: flex;    
+  margin-bottom: 15px;                    
 `
 
 const LeftCont = styled.div`

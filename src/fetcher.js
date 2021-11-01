@@ -18,10 +18,11 @@ export const popularMoviesData = async() => {
 
 // Get movies
 // https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher               If there are more than two words, space between must be converted to + 
-export const moviesData = async(keyword) => {
+// https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher&language=en-US&page=1&include_adult=false&primary_release_year=2012       Added option for year
+export const moviesData = async(keyword, year) => {
   try {
-    const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie${API_KEY}&query=${keyword}`)
-    return data.results
+    const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie${API_KEY}&query=${keyword}&language=en-US&page=1&include_adult=false&primary_release_year=${year}`)
+    return data
   } catch(err) {
     console.log('Error with moviesData >>>>', err.message)
   }

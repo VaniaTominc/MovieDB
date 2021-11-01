@@ -15,17 +15,20 @@ const Discover = () => {
   const [popular, setPopular] = useState([])
   const [genreOptions, setGenresOptions] = useState([])
   const [results, setResults] = useState([])
+  const [totalCount, setTotalCount] = useState(0)
 
   useEffect(() => {
     const getData = async () => {
       try {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
-        const resultsData = await fetcher.moviesData("enemy+gates")          // For now hard coded keyword, later it needs to be replace with "keyword"
-        console.log('resultsData >>>', resultsData)
+        const resultsData = await fetcher.moviesData("jack", "2020")          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
+        const totalCount = resultsData.total_results
+        // console.log('totalCount >>>', totalCount)
         setGenresOptions(genresData)
         setPopular(popularData)
-        setResults(resultsData)
+        setResults(resultsData.results)
+        setTotalCount(totalCount)
       } catch(err) {
         console.log('I am causing problems inside Discover component >>>', err.message)
       }
@@ -40,24 +43,6 @@ const Discover = () => {
 
   //   this.state = {
   //     keyword: '',
-  //     year: 0,
-  //     results: [],
-  //     totalCount: 0,
-  //     genreOptions: [],
-  //     ratingOptions: [
-  //     { id: 7.5, name: 7.5 },
-  //     { id: 8, name: 8 },
-  //     { id: 8.5, name: 8.5 },
-  //     { id: 9, name: 9 },
-  //     { id: 9.5, name: 9.5 },
-  //     { id: 10, name: 10 }
-  //     ],
-  //     languageOptions: [
-  //       { id: 'GR', name: 'Greek' },
-  //       { id: 'EN', name: 'English' },
-  //       { id: 'RU', name: 'Russian' },
-  //       { id: 'PO', name: 'Polish' }
-  //     ]
   //   }
   // }
 
@@ -93,10 +78,9 @@ const Discover = () => {
         />
       </MovieFilters>
       <MovieResults>
-        {/* { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>} */}
-        <TotalCounter>1054 movies</TotalCounter>
+        { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
         <MovieList 
-          // movies={results || []}
+          movies={results || []}
           // genres={genreOptions || []}
         />
       </MovieResults>
