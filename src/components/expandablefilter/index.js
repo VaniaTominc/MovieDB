@@ -1,7 +1,7 @@
 import React from "react"
 // import styled from 'styled-components'
 
-// import Checkbox from "../checkbox"
+import Checkbox from "../checkbox"
 
 const ExpandableFilter = () => {
 
@@ -17,7 +17,15 @@ const ExpandableFilter = () => {
   // ! You need to create your own checkbox component with a custom checkmark
 
   return (
-    <h1>ExpandableFilter Component</h1>
+    <>
+      <h1>ExpandableFilter Component</h1>
+      <section>
+        <details>
+          <summary>Select genre(s)</summary>
+          <Checkbox />
+        </details>
+      </section>
+    </>
   )
 
 }

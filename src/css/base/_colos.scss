@@ -21,3 +21,23 @@ $lightBackground: #f6f7f9;
 .positioning-lower-input {
   margin-top: 15px;
 }
+
+input[type=checkbox]
+{
+  /* Changing the size of Checkboxes */
+  -ms-transform: scale(1.3); /* IE */
+  -moz-transform: scale(1.3); /* FF */
+  -webkit-transform: scale(1.3); /* Safari and Chrome */
+  -o-transform: scale(1.3); /* Opera */
+  transform: scale(1.3);
+  padding: 10px;
+}
+
+// details > summary {
+//   list-style-type: '+';
+// }
+
+// details[open] > summary {
+//   list-style-type: '-';
+// }
+
