@@ -1,8 +1,9 @@
-import React from "react"
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 
 // import * as colors from "../../colors"
-// import * as fetcher from "../../fetcher"
+import * as fetcher from "../../fetcher"
 
 import SearchFilters from "../../components/searchfilter"
 import MovieList from "../../components/movielist"
@@ -10,6 +11,23 @@ import MovieList from "../../components/movielist"
 const Discover = () => {
 
   // ! Original code, please change it to hooks.
+
+  const [popular, setPopular] = useState([])
+  const [genreOptions, setGenresOptions] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const genresData = await fetcher.genresData()
+        const popularData = await fetcher.popularMoviesData()
+        setGenresOptions(genreOptions)
+      } catch(err) {
+        console.log('I am causing problems inside Discover component >>>', err.message)
+      }
+    }
+    getData()
+  })
+
 
   // constructor (props) {
   //   super(props);
@@ -21,12 +39,12 @@ const Discover = () => {
   //     totalCount: 0,
   //     genreOptions: [],
   //     ratingOptions: [
-  //       { id: 7.5, name: 7.5 },
-  //       { id: 8, name: 8 },
-  //       { id: 8.5, name: 8.5 },
-  //       { id: 9, name: 9 },
-  //       { id: 9.5, name: 9.5 },
-  //       { id: 10, name: 10 }
+  //     { id: 7.5, name: 7.5 },
+  //     { id: 8, name: 8 },
+  //     { id: 8.5, name: 8.5 },
+  //     { id: 9, name: 9 },
+  //     { id: 9.5, name: 9.5 },
+  //     { id: 10, name: 10 }
   //     ],
   //     languageOptions: [
   //       { id: 'GR', name: 'Greek' },
@@ -36,6 +54,22 @@ const Discover = () => {
   //     ]
   //   }
   // }
+
+  const ratingOptions = [
+    { id: 7.5, name: 7.5 },
+    { id: 8, name: 8 },
+    { id: 8.5, name: 8.5 },
+    { id: 9, name: 9 },
+    { id: 9.5, name: 9.5 },
+    { id: 10, name: 10 }
+  ]
+
+  const languageOptions = [
+    { id: 'GR', name: 'Greek' },
+    { id: 'EN', name: 'English' },
+    { id: 'RU', name: 'Russian' },
+    { id: 'PO', name: 'Polish' }
+  ]
 
   // ! Write a function to preload the popular movies when page loads & get the movie genres
 
@@ -47,8 +81,8 @@ const Discover = () => {
       <MovieFilters>
         <SearchFilters 
           // genres={genreOptions} 
-          // ratings={ratingOptions}  
-          // languages={languageOptions}
+          ratings={ratingOptions}  
+          languages={languageOptions}
           searchMovies={(keyword, year) => this.searchMovies(keyword, year)}
         />
       </MovieFilters>

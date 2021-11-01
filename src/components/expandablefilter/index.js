@@ -1,29 +1,43 @@
+// import React, { useState } from "react"
 import React from "react"
+import CheckBox from "../checkbox"
 // import styled from 'styled-components'
 
 import Checkbox from "../checkbox"
 
-const ExpandableFilter = () => {
+const ExpandableFilter = ({languages, ratings}) => {
 
-  // Original code:
-  // constructor (props) {
-  //   super(props);
+  // console.log('languages in ExpandableFilter >>>', languages)
+  // console.log('ratings in ExpandableFilter >>>', ratings)
 
-  //   this.state = {
-  //     filtersShown: false
-  //   };
-  // }
+
+  // const [filtersShown, setFiltersShown] = useState(false)
 
   // ! You need to create your own checkbox component with a custom checkmark
 
   return (
     <>
-      <h1>ExpandableFilter Component</h1>
       <section>
+
         <details>
           <summary>Select genre(s)</summary>
           <Checkbox />
         </details>
+
+        <details>
+          <summary>Select min.vote</summary>
+          {ratings && ratings.map(item => {
+            return <CheckBox key={item.id} { ...item} />
+          })}
+        </details>
+
+        <details>
+          <summary>Select language</summary>
+          {languages && languages.map(item => {
+            return <Checkbox key={item.id} { ...item} />
+          })}
+        </details>
+
       </section>
     </>
   )
