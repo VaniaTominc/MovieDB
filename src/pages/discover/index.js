@@ -109,8 +109,9 @@ const DiscoverWrapper = styled.main`
   display: flex;
   flex-direction: row-reverse;
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     flex-direction: column;
+    padding: 47px 35px;
   }
 `
 
@@ -134,7 +135,7 @@ const MovieFilters = styled.div`
 const MobilePageTitle = styled.header`
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     display: block;
     flex-direction: row;
     flex-wrap: wrap;

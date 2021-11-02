@@ -32,7 +32,7 @@ export default App
 const ContentWrapper = styled.main`
   padding-left: 280px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     padding-left: 0;
   }
 `

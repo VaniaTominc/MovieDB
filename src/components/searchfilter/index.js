@@ -45,7 +45,7 @@ const FiltersWrapper = styled.div`
   position: relative;
   padding-top: 36px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     display: flex;
     padding-top: 30px;
     margin-left: -15px;
@@ -63,7 +63,7 @@ const SearchFiltersCont = styled.div`
     margin-bottom: 15px;
   `}
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     ${props => props.marginBottom && css`
     margin-right: 15px;
     background-color: transparent;

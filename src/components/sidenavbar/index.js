@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 // import styled, { css } from 'styled-components'
 import styled from 'styled-components'
 import { NavLink as Link } from "react-router-dom"
@@ -9,15 +9,20 @@ import SearchWhite from "../../images/search-icon-white.png"
 
 const SideNavBar = () => {
 
-  // const { isOpen } = this.state           Original code, please change it to hooks
-
   /* Write the necessary functions to show and hide the side bar on small devices */
+
+  const [isOpen, setIsOpen] = useState(false)
+
 
   return (
     // <SideNavBarCont className={isOpen ? 'visible' : ''}>     Original code
-    <SideNavBarCont>
+    <SideNavBarCont isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
       {/* Implement a hamburger icon slide in effect for small devices */}
-      <HamburgerIcon>🏠</HamburgerIcon>
+      <HamburgerIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+        <div />
+        <div />
+        <div />
+      </HamburgerIcon>
       <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
         Wesley
         {/* <NavIcon arrow></NavIcon> */}
@@ -51,14 +56,14 @@ const SideNavBarCont = styled.div`
   height: 100%;
   background-color: ${colors.sideNavBar};
 
-  @media (max-width: 768px) {
-  right: -100%;
+  @media (max-width: 990px) {
+    left: ${({ isOpen }) => isOpen ? '0' : '-100%'};
+    transition: all 0.5s linear;
   }
 `
 
-
+// Deleted original "position: relative"
 const SideNavMainLink = styled(Link)`
-  position: relative;
   display: block;
   padding: 25px 35px;
   font-size: 1.6em;
@@ -98,11 +103,48 @@ const NavLink = styled(Link)`
 const HamburgerIcon = styled.div`
   display: none;
 
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     position: fixed;
     display: block;
-    left: 20px;
-    top: 15px;
-    font-size: 2rem;
+    left: ${({ isOpen }) => isOpen ? '230px' : '35px'};
+    top: 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+
+    &:focus {
+      outline: none;
+    }
+
+    div {
+      width: 2rem;
+      height: 0.25rem;
+      background: ${({ isOpen }) => isOpen ? 'white' : `${colors.sideNavBar}`};
+      border-radius: 10px;
+      transition: all 0.7s linear;
+      position: relative;
+      transform-origin: 1px;
+
+      :first-child {
+        transform: ${({ isOpen }) => isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+      }
+  
+      :nth-child(2) {
+        opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
+        transform: ${({ isOpen }) => isOpen ? 'translateX(20px)' : 'translateX(0)'};
+      }
+  
+      :nth-child(3) {
+        transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+      }
+    }
   }
 `

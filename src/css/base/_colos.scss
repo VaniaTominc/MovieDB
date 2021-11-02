@@ -13,7 +13,7 @@ $lightBackground: #f6f7f9;
 }
 
 .discover {
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     right: -100%;
   }
 }
@@ -52,7 +52,7 @@ input[type=checkbox]
 } 
 
 #search-year {
-  @media (max-width: 768px) {
+  @media (max-width: 990px) {
     display: none;
   }
 }
