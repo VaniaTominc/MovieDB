@@ -1,50 +1,55 @@
-// import React, { useState } from "react"
-import React from "react"
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from "react"
 import CheckBox from "../checkbox"
-// import styled from 'styled-components'
+import styled from 'styled-components'
 
-import Checkbox from "../checkbox"
+import Accordion from "../accordion"
 
-const ExpandableFilter = ({languages, ratings, genres}) => {
+const ExpandableFilter = ({languages, ratings, genres, status}) => {
 
-  // console.log('languages in ExpandableFilter >>>', languages)
-  // console.log('ratings in ExpandableFilter >>>', ratings)
-  // console.log('genres inside ExpandableFilter >>>', genres)
-
-
-  // const [filtersShown, setFiltersShown] = useState(false)
+  const [filtersShown, setFiltersShown] = useState('')
+  useEffect(() => {
+    setFiltersShown(status)
+  }, [status])
+  // console.log('status inside ExpandableFilter >>>>', status)
+  // console.log('filtersShown inside ExpandableFilter >>>>', filtersShown)
 
   // ! You need to create your own checkbox component with a custom checkmark
 
-  return (
-    <>
-      <section>
+  return ( 
+    <Filters filtersShown={filtersShown} onClick={() => setFiltersShown(!filtersShown)}>
+      <Accordion 
+        title='Select genre(s)'
+        content={genres.map(item => <CheckBox key={item.id} {...item} />)}
+      />
 
-        <details>
-          <summary>Select genre(s)</summary>
-          {genres && genres.map(item => {
-            return <CheckBox key={item.id} { ...item} />
-          })}
-        </details>
+      <Accordion
+        title='Select min. vote'
+        content={ratings && ratings.map(item => {
+          return <CheckBox key={item.id} {...item} />
+        })}
+      />
 
-        <details>
-          <summary>Select min.vote</summary>
-          {ratings && ratings.map(item => {
-            return <CheckBox key={item.id} { ...item} />
-          })}
-        </details>
+      <Accordion
+        title='Select language'
+        content={languages && languages.map(item => {
+          return <CheckBox key={item.id} {...item} />
+        })}
+      />
 
-        <details>
-          <summary>Select language</summary>
-          {languages && languages.map(item => {
-            return <Checkbox key={item.id} { ...item} />
-          })}
-        </details>
-
-      </section>
-    </>
+    </Filters>
   )
 
 }
 
 export default ExpandableFilter
+
+const Filters = styled.section`
+  @media (max-width: 990px) {
+    display: ${({ filtersShown }) => filtersShown ? 'none' : 'block'};
+    transition: all 0.5s linear;
+  }
+`
+
+
+      

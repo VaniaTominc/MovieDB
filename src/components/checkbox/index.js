@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const CheckBox = ({id, name}) => {
   // Create a custom checkbox component
   
-  // For now hard coded, later use API call to create all genres by mapping through the result.
   // As there are going to be three different parts that are going to use checkbox, please be careful how are you going to write a code!
 
   return (

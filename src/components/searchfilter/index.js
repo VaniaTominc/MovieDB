@@ -1,4 +1,5 @@
-import React from "react"
+/* eslint-disable no-unused-vars */
+import React, { useState } from "react"
 import { Fragment } from "react/cjs/react.production.min"
 import styled, { css } from 'styled-components'
 
@@ -6,9 +7,18 @@ import styled, { css } from 'styled-components'
 import ExpandableFilter from "../../components/expandablefilter"
 import SearchBar from "../../components/searchbar"
 
+import FilterImage from "../../images/filter-icon.png"
+
 const SearchFilters = ({languages, ratings, genres, searchMovies}) => {
 
-  // console.log('searchMovies insideFilters >>>>', searchMovies)
+  // const [sendValue, setSendValue] = useState('')
+  const [status, setStatus] = useState(true)
+
+  const handleClick = () => {
+    // console.log('EVENT.TARGET >>>', event.target.name)
+    setStatus(!status)
+    // console.log('Current Status >>>', status)
+  }
 
   return (
     <Fragment>
@@ -23,12 +33,15 @@ const SearchFilters = ({languages, ratings, genres, searchMovies}) => {
 
         {/* On the right side of page, under the SearchBar component */}
         <SearchFiltersCont>
-          <CategoryTitle>Movies</CategoryTitle>
+          <input type="image" src={FilterImage} alt="Filter icon" name="filterIcon" onClick={handleClick} />
+          {/* <FilterIcon src={FilterImage} alt="Filter icon" onClick={handleClick} /> */}
+          <CategoryTitle>Movie</CategoryTitle>
           {/* Implement a component called "ExpandableFilter" and apply it to all filter categories */}
           <ExpandableFilter 
             genres={genres}
             languages={languages}
             ratings={ratings}
+            status={status}
           />
         </SearchFiltersCont>
 
@@ -49,6 +62,7 @@ const FiltersWrapper = styled.div`
     display: flex;
     padding-top: 30px;
     margin-left: -15px;
+    justify-content: space-between;
   }
 `
 
@@ -64,6 +78,7 @@ const SearchFiltersCont = styled.div`
   `}
 
   @media (max-width: 990px) {
+    background-color: transparent;
     ${props => props.marginBottom && css`
     margin-right: 15px;
     background-color: transparent;
@@ -72,5 +87,15 @@ const SearchFiltersCont = styled.div`
 `
 
 const CategoryTitle = styled.div`
+  font-size: .9rem;
+  font-weight: 800;
+`
 
+
+const FilterIcon = styled.img`
+  display: none;
+
+  @media (max-width: 990px) {
+    display: block;
+  }
 `

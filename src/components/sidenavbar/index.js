@@ -13,7 +13,6 @@ const SideNavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false)
 
-
   return (
     // <SideNavBarCont className={isOpen ? 'visible' : ''}>     Original code
     <SideNavBarCont isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -24,7 +23,7 @@ const SideNavBar = () => {
         <div />
       </HamburgerIcon>
       <SideNavMainLink className="menu_nav_link main_nav_link" to="/" exact>
-        Wesley
+        Vania
         {/* <NavIcon arrow></NavIcon> */}
         <NavIcon>
           <img src={Arrow} alt="Arrow down" />
@@ -74,7 +73,7 @@ const SideNavMainLink = styled(Link)`
 const NavIcon = styled.div`
   position: absolute;
   right: 35px;
-  top: 30%;
+  margin-top: -12%;
 `
 
 // Originally empty, I added styles.

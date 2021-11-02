@@ -20,11 +20,9 @@ const Discover = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const genresData = await fetcher.genresData()
         const resultsData = await fetcher.moviesData(keyword, year)  
         const totalCount = resultsData.total_results
         // console.log('totalCount >>>', totalCount)
-        setGenresOptions(genresData)
         // setResults(resultsData.results)
         setTotalCount(totalCount)
       } catch(err) {
@@ -55,8 +53,10 @@ const Discover = () => {
   useEffect(() => {
     const getData = async() => {
       try {
+        const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
         const resultsData = await fetcher.moviesData(keyword, year) 
+        setGenresOptions(genresData)
         setResults(popularData.results)
         const totalCount = popularData.total_results 
         setTotalCount(totalCount)
@@ -112,6 +112,7 @@ const DiscoverWrapper = styled.main`
   @media (max-width: 990px) {
     flex-direction: column;
     padding: 47px 35px;
+    margin-top: -1rem;
   }
 `
 
@@ -123,12 +124,12 @@ const TotalCounter = styled.div`
 `
 
 const MovieResults = styled.div`
-  
+  flex: 12;
 `
 
 // Originally empty, I added styles.
 const MovieFilters = styled.div`
-  flex: 2;
+  flex: 3;
   padding-left: 15px;
 `
 
