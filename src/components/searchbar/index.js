@@ -9,8 +9,8 @@ const SearchBar = (props) => {
 
   // console.log('props >>>>', props.searchMovies())
 
-  const [searchTerm, setSearchTerm] = useState()
-  const [searchYear, setSearchYear] = useState()
+  const [searchTerm, setSearchTerm] = useState('')        // Had to add '', because I got an error of "uncontrolled >>> controlled component" inside console.log
+  const [searchYear, setSearchYear] = useState('')        // Look at the line 12 for the explanation.
   const handleChange = event => {
     setSearchTerm(event.target.value)
     // props.searchMovies(searchTerm)
@@ -18,7 +18,6 @@ const SearchBar = (props) => {
 
   const handleYear = event => {
     setSearchYear(event.target.value)
-    console.log('typeof >>>>', typeof searchYear)
     // console.log('event.target.value >>>', event.target.value)
     // props.searchMovies(searchYear)
   }
