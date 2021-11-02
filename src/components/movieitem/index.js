@@ -8,6 +8,14 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
 
   // console.log('movies >>>>', movies)
 
+  const checkImage = () => {
+    if (poster_path === null) {
+      return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'         // I had to use this as some queries are not returning picture back.
+    } else {
+      return `https://image.tmdb.org/t/p/w500${poster_path}`
+    }
+  }
+
   return (
     // Complete the MovieItem component
 
@@ -15,7 +23,7 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
       <MovieItemWrapper> 
         <LeftCont>
           {/* <h2>Picture of movie / series</h2> */}
-          <StyledImage src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />       
+          <StyledImage src={checkImage()} alt={original_title} />       
         </LeftCont>
         <RightCont>
           <HeadingRating>
