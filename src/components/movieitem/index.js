@@ -35,9 +35,11 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
           {/* <Genre>{genres.map(i => typeof i.name)}</Genre> */}
           {/* <Genre>{item.map(j => j.genre_ids)}</Genre> */}
           <OverviewWrapper> 
-            <OverviewContent>
-              {overview}
-            </OverviewContent>
+            <div className='sidebar-box'>
+              <OverviewContent>
+                {overview}
+              </OverviewContent>
+            </div>
             <ReleaseContent>{release_date}</ReleaseContent>
           </OverviewWrapper>
         </RightCont>
@@ -60,8 +62,11 @@ const LeftCont = styled.div`
   display: inline-block;
 `
 
+// I added "flex: 1" to spread the container to its fullness. I also changed display from inline-block to flex as I was having some problems with positioning release date.
 const RightCont = styled.div`
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `
 
 // Created new styled component for the image
@@ -77,6 +82,7 @@ const HeadingRating = styled.div`
   justify-content: space-between;
   padding-right: 20px;
   align-item: flex-end;
+  align-items: center;
 `
 
 const Heading = styled.h2`
@@ -85,7 +91,10 @@ const Heading = styled.h2`
   line-height: 1;
 `
 
-const Rating = styled.h4`
+
+const Rating = styled.div`
+  width: 19px;
+  height: 14px;
   border: 1px solid ${colors.primaryColor};
   border-radius: 5px;
   background-color: ${colors.primaryColor};
@@ -95,12 +104,14 @@ const Rating = styled.h4`
   line-height: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
 `
 
 const OverviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: -12px;
+  flex: 1;
+  justify-content: space-between;
 `
 
 const OverviewContent = styled.p`
@@ -110,10 +121,11 @@ const OverviewContent = styled.p`
 `
 const ReleaseContent = styled.p`
   line-height: 0;
-  margin-top: 3.8rem;
   font-size: .75rem;
   color: ${colors.primaryColor};
+  margin-bottom: 30px;
 `
+  // margin-top: 3.8rem;
 
 const Genre = styled.h4`
   color: ${colors.primaryColor};
