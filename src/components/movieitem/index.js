@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import * as colors from "../../colors"
 
-const MovieItem = ({backdrop_path, original_title, overview, release_date, vote_average}) => {
+const MovieItem = ({poster_path, original_title, overview, release_date, vote_average}) => {
 
   // console.log('movies >>>>', movies)
 
@@ -15,7 +15,7 @@ const MovieItem = ({backdrop_path, original_title, overview, release_date, vote_
       <MovieItemWrapper> 
         <LeftCont>
           {/* <h2>Picture of movie / series</h2> */}
-          <StyledImage src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} alt={original_title} />        {/* For now hard coded image */}
+          <StyledImage src={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={original_title} />       
         </LeftCont>
         <RightCont>
           <HeadingRating>
@@ -34,28 +34,6 @@ const MovieItem = ({backdrop_path, original_title, overview, release_date, vote_
           </OverviewWrapper>
         </RightCont>
       </MovieItemWrapper>
-
-
-    // <MovieItemWrapper>
-    //   <LeftCont>
-    //     {/* <h2>Picture of movie / series</h2> */}
-    //     <StyledImage src={`https://image.tmdb.org/t/p/w500/${movies.backdrop_path}`} alt={movies.original_title} />        {/* For now hard coded image */}
-    //   </LeftCont>
-    //   <RightCont>
-    //     <HeadingRating>
-    //       <Heading>{movies.original_title}</Heading>
-    //       <Rating>7.5</Rating>
-    //     </HeadingRating>
-    //     {/* {genres && genres.map(item => <Genre key={item.id}>{item.name}</Genre> )} */}
-    //     <Genre>{movies.genre_ids}</Genre>
-    //     <OverviewWrapper>
-    //       <OverviewContent>
-    //         {movies.overview}
-    //       </OverviewContent>
-    //       <ReleaseContent>{movies.release_date}</ReleaseContent>
-    //     </OverviewWrapper>
-    //   </RightCont>
-    // </MovieItemWrapper>
   )
 }
 

@@ -21,13 +21,11 @@ const Discover = () => {
     const getData = async () => {
       try {
         const genresData = await fetcher.genresData()
-        const popularData = await fetcher.popularMoviesData()
-        const resultsData = await fetcher.moviesData(keyword, year)          // For now hard coded keyword and year, later it needs to be replace with "keyword" and "year"
+        const resultsData = await fetcher.moviesData(keyword, year)  
         const totalCount = resultsData.total_results
         // console.log('totalCount >>>', totalCount)
         setGenresOptions(genresData)
-        setPopular(popularData)
-        setResults(resultsData.results)
+        // setResults(resultsData.results)
         setTotalCount(totalCount)
       } catch(err) {
         console.log('I am causing problems inside Discover component >>>', err.message)
@@ -54,6 +52,23 @@ const Discover = () => {
 
   // ! Write a function to preload the popular movies when page loads & get the movie genres
 
+  useEffect(() => {
+    const getData = async() => {
+      try {
+        const popularData = await fetcher.popularMoviesData()
+        const resultsData = await fetcher.moviesData(keyword, year) 
+        setResults(popularData.results)
+        const totalCount = popularData.total_results 
+        setTotalCount(totalCount)
+        setResults(resultsData.results)
+        setTotalCount(resultsData.total_results)
+      } catch(err) {
+        console.log('something is wrong', err.message)
+      }
+    }
+    getData()
+  }, [keyword, year])
+
   // ! Write a function to trigger the API request and load the search results based on the keyword and year given as parameter
 
   const searchMovies = (keyword, year) => {
@@ -75,7 +90,6 @@ const Discover = () => {
       <MovieResults>
         { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
         <MovieList 
-          // popular={popular || []}
           movies={results || []}
           genres={genreOptions || []}
         />

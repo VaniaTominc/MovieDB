@@ -17,17 +17,23 @@ const MovieList = ({popular, movies, genres}) => {
         {/* {movies && movies.map(item => {
           return <MovieItem key={item.id} { ...item} />
         })} */}
-        {
-          <>{popular && popular.map(item => {
-            return <MovieItem key={item.id} { ...item} />
-          })}
+        {popular ? 
+        
+          <>
+            {popular && popular.map(item => {
+              return <MovieItem key={item.id} { ...item} />
+            })}
           </>
-          &&
-          <>{movies && movies.map(item => {
-            return <MovieItem key={item.id} { ...item} />
-          })}
+
+          : 
+        
+          <>
+            {movies && movies.map(item => {
+              return <MovieItem key={item.id} { ...item} />
+            })}
           </>
         }
+        
         {/* <MovieItem 
           movies={movies}
           genres={genres}

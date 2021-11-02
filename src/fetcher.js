@@ -10,7 +10,7 @@ export const popularMoviesData = async() => {
   try {
     const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular${API_KEY}`)
     // console.log('popularMoviesData >>>>', data.results)
-    return data.results
+    return data
   } catch(err) {
     console.log('Error with popularMoviesData >>>>', err.message)
   }
