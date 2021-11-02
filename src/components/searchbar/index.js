@@ -33,7 +33,7 @@ const SearchBar = (props) => {
         <LensIcon src={SearchIcon} alt="Search icon" />
         <Input type="text" placeholder="Search for movies" value={searchTerm} onChange={handleChange} />
       </InputText>
-      <InputText className="positioning-lower-input">
+      <InputText id="search-year" className="positioning-lower-input">
         <LensIcon src={CalendarIcon} alt="Year of production" />
         <Input type="number" min="1900" max="2099" value={searchYear} onChange={handleYear} placeholder="Year of release" style={{width: '100%'}} />
       </InputText>

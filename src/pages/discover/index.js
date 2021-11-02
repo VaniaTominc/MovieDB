@@ -108,6 +108,10 @@ const DiscoverWrapper = styled.main`
   padding: 47px 50px;
   display: flex;
   flex-direction: row-reverse;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 // Originally it had only "font-weight: 900", I added the rest.
@@ -118,7 +122,7 @@ const TotalCounter = styled.div`
 `
 
 const MovieResults = styled.div`
-  flex: 8;
+  
 `
 
 // Originally empty, I added styles.

@@ -66,6 +66,7 @@ const SearchFiltersCont = styled.div`
   @media (max-width: 768px) {
     ${props => props.marginBottom && css`
     margin-right: 15px;
+    background-color: transparent;
   `}
   }
 `

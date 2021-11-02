@@ -52,9 +52,10 @@ const SideNavBarCont = styled.div`
   background-color: ${colors.sideNavBar};
 
   @media (max-width: 768px) {
-    right: -100%;
+  right: -100%;
   }
 `
+
 
 const SideNavMainLink = styled(Link)`
   position: relative;
