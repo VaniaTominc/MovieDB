@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 
 import * as colors from "../../colors"
@@ -23,7 +23,9 @@ const SearchBar = (props) => {
     // props.searchMovies(searchYear)
   }
 
-  props.searchMovies(searchTerm, searchYear)
+  useEffect(() => {
+    props.searchMovies(searchTerm, searchYear)
+  }, [props, searchTerm, searchYear])
 
 
   return (
