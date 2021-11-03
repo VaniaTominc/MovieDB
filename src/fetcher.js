@@ -44,6 +44,6 @@ export const genresData = async() => {
     // console.log("Genres >>>>", data.genres)
     return data.genres
   } catch(err) {
-    console.log("there is something wrong with the data >>>", err.message)
+    console.log("there is something wrong with the genresData >>>", err.message)
   }
 }

@@ -1,26 +1,22 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react"
 import CheckBox from "../checkbox"
-import styled from "styled-components"
-
 import Accordion from "../accordion"
+import { Filters } from "./style"
 
 const ExpandableFilter = ({languages, ratings, genres, status}) => {
 
-  const [filtersShown, setFiltersShown] = useState("")
+  const [filtersShown, setFiltersShown] = useState(false)
+
   useEffect(() => {
     setFiltersShown(status)
   }, [status])
-  // console.log("status inside ExpandableFilter >>>>", status)
-  // console.log("filtersShown inside ExpandableFilter >>>>", filtersShown)
-
-  // ! You need to create your own checkbox component with a custom checkmark
 
   return ( 
     <Filters filtersShown={filtersShown} onClick={() => setFiltersShown(!filtersShown)}>
       <Accordion 
         title="Select genre(s)"
         content={genres.map(item => <CheckBox key={item.id} {...item} />)}
+        filtersShown={filtersShown}
       />
 
       <Accordion
@@ -44,12 +40,7 @@ const ExpandableFilter = ({languages, ratings, genres, status}) => {
 
 export default ExpandableFilter
 
-const Filters = styled.section`
-  @media (max-width: 990px) {
-    display: ${({ filtersShown }) => filtersShown ? "none" : "block"};
-    transition: all 0.5s linear;
-  }
-`
+
 
 
       

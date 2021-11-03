@@ -33,6 +33,14 @@ input[type=checkbox]
     margin-top: -1rem;
     max-height: 80px;
   }
+  input[type="checkbox"] {
+    -ms-transform: scale(.9); /* IE */
+    -moz-transform: scale(.9); /* FF */
+    -webkit-transform: scale(.9); /* Safari and Chrome */
+    -o-transform: scale(.9); /* Opera */
+    transform: scale(.9);
+    padding: 5px;
+  }
 }
 
 #search-year {
