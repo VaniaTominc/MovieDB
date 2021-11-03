@@ -31,7 +31,7 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
       }
     }
     getData()
-  }, [id])
+  })
 
   const checkImage = () => {
     if (poster_path === null) {

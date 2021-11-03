@@ -22,6 +22,10 @@ export const CategoryTitle = styled.div`
 
 export const FilterIcon = css`
   width: 30px;
+  display: none;
+  @media (max-width: 990px) {
+    display: block;
+  }
 `
 
 export const SearchFiltersCont = styled.div`
