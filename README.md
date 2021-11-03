@@ -38,7 +38,7 @@ Packages & Technologies used in the repo:
     - Making filtering options workable. For now, only the search function works, but I would love to include also filtering based on 'Genre,' 'Language,' 'Rating.'
     - Create a workable NavBar. It works but not the way the challenge asked me to do it. 
     - Build the rest of the page. 
-    - Better error handling. 
+    - Error handling. 
 + ### Key learnings
     - Working on a project that is partially already done. It is interesting how other Software Engineers structure their code. You need to adapt if you want to build on that code, and I think I did it pretty well.
 
