@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react"
 import { Fragment } from "react/cjs/react.production.min"
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components"
 
 // import * as colors from "../../colors"
 import ExpandableFilter from "../../components/expandablefilter"
@@ -11,13 +11,13 @@ import FilterImage from "../../images/filter-icon.png"
 
 const SearchFilters = ({languages, ratings, genres, searchMovies}) => {
 
-  // const [sendValue, setSendValue] = useState('')
+  // const [sendValue, setSendValue] = useState("")
   const [status, setStatus] = useState(true)
 
   const handleClick = () => {
-    // console.log('EVENT.TARGET >>>', event.target.name)
+    // console.log("EVENT.TARGET >>>", event.target.name)
     setStatus(!status)
-    // console.log('Current Status >>>', status)
+    // console.log("Current Status >>>", status)
   }
 
   return (

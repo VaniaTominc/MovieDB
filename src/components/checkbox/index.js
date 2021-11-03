@@ -1,5 +1,5 @@
 import React from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 const CheckBox = ({id, name}) => {
   // Create a custom checkbox component

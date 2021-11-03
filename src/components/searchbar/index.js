@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import * as colors from "../../colors"
 import SearchIcon from "../../images/search-icon-yellow.png"
@@ -7,10 +7,10 @@ import CalendarIcon from "../../images/year-icon.png"
 
 const SearchBar = (props) => {
 
-  // console.log('props >>>>', props.searchMovies())
+  // console.log("props >>>>", props.searchMovies())
 
-  const [searchTerm, setSearchTerm] = useState('')        // Had to add '', because I got an error of "uncontrolled >>> controlled component" inside console.log
-  const [searchYear, setSearchYear] = useState('')        // Look at the line 12 for the explanation.
+  const [searchTerm, setSearchTerm] = useState("")        // Had to add "", because I got an error of "uncontrolled >>> controlled component" inside console.log
+  const [searchYear, setSearchYear] = useState("")        // Look at the line 12 for the explanation.
   const handleChange = event => {
     setSearchTerm(event.target.value)
     // props.searchMovies(searchTerm)
@@ -18,7 +18,7 @@ const SearchBar = (props) => {
 
   const handleYear = event => {
     setSearchYear(event.target.value)
-    // console.log('event.target.value >>>', event.target.value)
+    // console.log("event.target.value >>>", event.target.value)
     // props.searchMovies(searchYear)
   }
 
@@ -35,7 +35,7 @@ const SearchBar = (props) => {
       </InputText>
       <InputText id="search-year" className="positioning-lower-input">
         <LensIcon src={CalendarIcon} alt="Year of production" />
-        <Input type="number" min="1900" max="2099" value={searchYear} onChange={handleYear} placeholder="Year of release" style={{width: '100%'}} />
+        <Input type="number" min="1900" max="2099" value={searchYear} onChange={handleYear} placeholder="Year of release" style={{width: "100%"}} />
       </InputText>
     </>
   )

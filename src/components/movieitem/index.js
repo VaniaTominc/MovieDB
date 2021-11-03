@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import * as colors from "../../colors"
 import * as fetcher from "../../fetcher"
@@ -14,7 +14,7 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
         const genreData = await fetcher.moviesGenresData(id)
         setGetGenre(genreData.genres)
       } catch(err) {
-        console.log('Error inside MovieItem >>>>', err.message)
+        console.log("Error inside MovieItem >>>>", err.message)
       }
     }
     getData()
@@ -22,7 +22,7 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
 
   const checkImage = () => {
     if (poster_path === null) {
-      return 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'         // I had to use this as some queries are not returning picture back.
+      return "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"         // I had to use this as some queries are not returning picture back.
     } else {
       return `https://image.tmdb.org/t/p/w500${poster_path}`
     }
@@ -41,11 +41,11 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
           </HeadingRating>
           <Genre>{getGenre && getGenre.map((item, index) => {
             return (
-              <span key={item.id}>{(index ? ' | ' : '') + item.name}</span>
+              <span key={item.id}>{(index ? " | " : "") + item.name}</span>
             )
           })}</Genre>
           <OverviewWrapper> 
-            <div className='sidebar-box'>
+            <div className="sidebar-box">
               <OverviewContent>
                 {overview}
               </OverviewContent>

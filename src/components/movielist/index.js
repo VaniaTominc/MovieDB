@@ -1,12 +1,12 @@
 import React from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 
-import MovieItem from '../movieitem'
+import MovieItem from "../movieitem"
 
 const MovieList = ({popular, movies}) => {
 
-  // console.log('Incoming movies inside MovieList component >>>>', movies)
-  // console.log('Incoming genres in MovieList >>>>', genres)
+  // console.log("Incoming movies inside MovieList component >>>>", movies)
+  // console.log("Incoming genres in MovieList >>>>", genres)
 
   // const { movies, genres } = this.props
 

@@ -1,20 +1,20 @@
-import React, { useState, useRef } from 'react'
-import styled from 'styled-components'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
+import React, { useState, useRef } from "react"
+import styled from "styled-components"
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 
 // My custom component. I built it because the ExpandableFilter component became too messy with all the repetitive code.
 
 const Accordion = (props) => {
-  const [setActive, setActiveState] = useState('')
-  const [setHeight, setHeightState] = useState('0px')
+  const [setActive, setActiveState] = useState("")
+  const [setHeight, setHeightState] = useState("0px")
 
   const content = useRef(null)
 
   function toggleAccordion() {
-    setActiveState(setActive === '' ? 'active' : '')
+    setActiveState(setActive === "" ? "active" : "")
     setHeightState(
-      setActive === 'active' ? '0px' : `${content.current.scrollHeight}px`
+      setActive === "active" ? "0px" : `${content.current.scrollHeight}px`
     )
   }
 
@@ -22,7 +22,7 @@ const Accordion = (props) => {
 
     <AccordionContainer>
       <ButtonTitle className={`${setActive}`} onClick={toggleAccordion}>
-        <AccordionIcon>{setActive === 'active' ? <AiOutlineMinus size={18} /> : <AiOutlinePlus size={18} />}</AccordionIcon>
+        <AccordionIcon>{setActive === "active" ? <AiOutlineMinus size={18} /> : <AiOutlinePlus size={18} />}</AccordionIcon>
         <Title>{props.title}</Title>
       </ButtonTitle>
       <Content ref={content} style={{maxHeight: `${setHeight}`}}>

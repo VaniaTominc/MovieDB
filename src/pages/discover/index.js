@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 // import * as colors from "../../colors"
 import * as fetcher from "../../fetcher"
@@ -13,8 +13,8 @@ const Discover = () => {
   const [genreOptions, setGenresOptions] = useState([])
   const [results, setResults] = useState([])
   const [totalCount, setTotalCount] = useState(0)
-  const [keyword, setKeyword] = useState('')
-  const [year, setYear] = useState('')
+  const [keyword, setKeyword] = useState("")
+  const [year, setYear] = useState("")
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Discover = () => {
         setIsLoading(false)
         setTotalCount(totalCount)
       } catch(err) {
-        console.log('I am causing problems inside Discover component >>>', err.message)
+        console.log("I am causing problems inside Discover component >>>", err.message)
       }
     }
     getData()
@@ -41,10 +41,10 @@ const Discover = () => {
   ]
 
   const languageOptions = [
-    { id: 'GR', name: 'Greek' },
-    { id: 'EN', name: 'English' },
-    { id: 'RU', name: 'Russian' },
-    { id: 'PO', name: 'Polish' }
+    { id: "GR", name: "Greek" },
+    { id: "EN", name: "English" },
+    { id: "RU", name: "Russian" },
+    { id: "PO", name: "Polish" }
   ]
 
   // ! Write a function to preload the popular movies when page loads & get the movie genres
@@ -63,7 +63,7 @@ const Discover = () => {
         setResults(resultsData.results)
         setTotalCount(resultsData.total_results)
       } catch(err) {
-        console.log('something is wrong', err.message)
+        console.log("something is wrong", err.message)
       }
     }
     getData()

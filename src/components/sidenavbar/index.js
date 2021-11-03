@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-// import styled, { css } from 'styled-components'
-import styled from 'styled-components'
+// import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { NavLink as Link } from "react-router-dom"
 
 import * as colors from "../../colors"
@@ -14,7 +14,7 @@ const SideNavBar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    // <SideNavBarCont className={isOpen ? 'visible' : ''}>     Original code
+    // <SideNavBarCont className={isOpen ? "visible" : ""}>     Original code
     <SideNavBarCont isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
       {/* Implement a hamburger icon slide in effect for small devices */}
       <HamburgerIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
@@ -56,7 +56,7 @@ const SideNavBarCont = styled.div`
   background-color: ${colors.sideNavBar};
 
   @media (max-width: 990px) {
-    left: ${({ isOpen }) => isOpen ? '0' : '-100%'};
+    left: ${({ isOpen }) => isOpen ? "0" : "-100%"};
     transition: all 0.5s linear;
   }
 `
@@ -106,7 +106,7 @@ const HamburgerIcon = styled.div`
   @media (max-width: 990px) {
     position: fixed;
     display: block;
-    left: ${({ isOpen }) => isOpen ? '230px' : '28px'};
+    left: ${({ isOpen }) => isOpen ? "230px" : "28px"};
     top: 24px;
 
     display: flex;
@@ -120,9 +120,9 @@ const HamburgerIcon = styled.div`
     padding: 0;
     z-index: 10;
 
-    background: ${({ isOpen }) => isOpen ? `${colors.sideNavBar}` : 'transparent'};
+    background: ${({ isOpen }) => isOpen ? `${colors.sideNavBar}` : "transparent"};
     padding: .2rem 0 .2rem .4rem;
-    margin-left: ${({ isOpen }) => isOpen ? '3.1rem' : '0'}; 
+    margin-left: ${({ isOpen }) => isOpen ? "3.1rem" : "0"}; 
     transition: all 0.5s linear;
 
     &:focus {
@@ -132,28 +132,28 @@ const HamburgerIcon = styled.div`
     div {
       width: 2rem;
       height: 0.25rem;
-      background: ${({ isOpen }) => isOpen ? 'white' : `${colors.sideNavBar}`};
+      background: ${({ isOpen }) => isOpen ? "white" : `${colors.sideNavBar}`};
       border-radius: 10px;
       transition: all 0.7s linear;
       position: relative;
       transform-origin: 1px;
 
       :first-child {
-        transform: ${({ isOpen }) => isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+        transform: ${({ isOpen }) => isOpen ? "rotate(45deg)" : "rotate(0)"};
       }
   
       :nth-child(2) {
-        opacity: ${({ isOpen }) => isOpen ? '0' : '1'};
-        transform: ${({ isOpen }) => isOpen ? 'translateX(20px)' : 'translateX(0)'};
+        opacity: ${({ isOpen }) => isOpen ? "0" : "1"};
+        transform: ${({ isOpen }) => isOpen ? "translateX(20px)" : "translateX(0)"};
       }
   
       :nth-child(3) {
-        transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+        transform: ${({ isOpen }) => isOpen ? "rotate(-45deg)" : "rotate(0)"};
       }
     }
   }
 
   @media (max-width: 428px) {
-    left: ${({ isOpen }) => isOpen ? '230px' : '15px'};
+    left: ${({ isOpen }) => isOpen ? "230px" : "15px"};
   }
 `

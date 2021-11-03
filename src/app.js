@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React from "react"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import SideNavBar from "./components/sidenavbar"
 
 import Discover from "./pages/discover"
 
-import './css/app.css'
+import "./css/app.css"
 
 const App = () => {
 
