@@ -28,6 +28,15 @@ export const moviesData = async(keyword, year) => {
   }
 }
 
+export const moviesGenresData = async(genreId) => {
+  try {
+    const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${genreId}${API_KEY}&language=en-US`)
+    return data
+  } catch(err) {
+    console.log('Error within moviesGenresData >>>', err.message)
+  }
+}
+
 // Get genre
 export const genresData = async() => {
   try { 

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 
@@ -7,23 +6,23 @@ import * as fetcher from "../../fetcher"
 
 import SearchFilters from "../../components/searchfilter"
 import MovieList from "../../components/movielist"
+import Spinner from "../../components/helpers"
 
 const Discover = () => {
 
-  const [popular, setPopular] = useState([])
   const [genreOptions, setGenresOptions] = useState([])
   const [results, setResults] = useState([])
   const [totalCount, setTotalCount] = useState(0)
   const [keyword, setKeyword] = useState('')
   const [year, setYear] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const resultsData = await fetcher.moviesData(keyword, year)  
+        const resultsData = await fetcher.moviesData(keyword, year) 
         const totalCount = resultsData.total_results
-        // console.log('totalCount >>>', totalCount)
-        // setResults(resultsData.results)
+        setIsLoading(false)
         setTotalCount(totalCount)
       } catch(err) {
         console.log('I am causing problems inside Discover component >>>', err.message)
@@ -56,6 +55,7 @@ const Discover = () => {
         const genresData = await fetcher.genresData()
         const popularData = await fetcher.popularMoviesData()
         const resultsData = await fetcher.moviesData(keyword, year) 
+        setIsLoading(false)
         setGenresOptions(genresData)
         setResults(popularData.results)
         const totalCount = popularData.total_results 
@@ -76,10 +76,18 @@ const Discover = () => {
     setYear(year)
   }
 
+
   return (
-    <DiscoverWrapper>
-      <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
-      <MovieFilters>
+    <>
+      {isLoading ? 
+
+        (<Spinner />)
+
+        :
+
+        (<DiscoverWrapper>
+          <MobilePageTitle>Discover</MobilePageTitle> {/* MobilePageTitle should become visible on small screens & mobile devices*/}
+        <MovieFilters>
         <SearchFilters 
           genres={genreOptions} 
           ratings={ratingOptions}  
@@ -91,10 +99,12 @@ const Discover = () => {
         { totalCount > 0 && <TotalCounter>{totalCount} results</TotalCounter>}
         <MovieList 
           movies={results || []}
-          genres={genreOptions || []}
         />
       </MovieResults>
-    </DiscoverWrapper>
+        </DiscoverWrapper>)
+    
+      }
+    </>
   )
 
 }

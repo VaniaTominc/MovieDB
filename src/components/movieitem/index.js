@@ -1,13 +1,24 @@
-/* eslint-disable no-unused-vars */
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from 'styled-components'
 
 import * as colors from "../../colors"
+import * as fetcher from "../../fetcher"
 
-const MovieItem = ({poster_path, original_title, overview, release_date, vote_average, genre_ids}) => {
+const MovieItem = ({poster_path, original_title, overview, release_date, vote_average, id}) => {
 
-  // console.log('movies >>>>', movies)
-  console.log('movies >>>>', )
+  const [getGenre, setGetGenre] = useState([])
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const genreData = await fetcher.moviesGenresData(id)
+        setGetGenre(genreData.genres)
+      } catch(err) {
+        console.log('Error inside MovieItem >>>>', err.message)
+      }
+    }
+    getData()
+  }, [id])
 
   const checkImage = () => {
     if (poster_path === null) {
@@ -18,12 +29,9 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
   }
 
   return (
-    // Complete the MovieItem component
-
 
       <MovieItemWrapper> 
         <LeftCont>
-          {/* <h2>Picture of movie / series</h2> */}
           <StyledImage src={checkImage()} alt={original_title} />       
         </LeftCont>
         <RightCont>
@@ -31,11 +39,11 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
             <Heading>{original_title}</Heading>
             <Rating>{vote_average}</Rating>
           </HeadingRating>
-          {/* <Genre>{genres.map(i => i.id.filter(j => j === item[j].genre_ids ? j.name : ''))}</Genre> */}
-          {/* <Genre>{genres.map(i => typeof i)}</Genre> */}
-          {/* <Genre>{genres.map(i => typeof i.name)}</Genre> */}
-          {/* <Genre>{item.map(j => j.genre_ids)}</Genre> */}
-          <Genre>{genre_ids}</Genre>
+          <Genre>{getGenre && getGenre.map((item, index) => {
+            return (
+              <span key={item.id}>{(index ? ' | ' : '') + item.name}</span>
+            )
+          })}</Genre>
           <OverviewWrapper> 
             <div className='sidebar-box'>
               <OverviewContent>

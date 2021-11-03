@@ -12,48 +12,6 @@ $lightBackground: #f6f7f9;
   color: $primaryColor;
 }
 
-.discover {
-  @media (max-width: 990px) {
-    right: -100%;
-  }
-}
-
-.positioning-lower-input {
-  margin-top: 15px;
-}
-
-input[type=checkbox]
-{
-  /* Changing the size of Checkboxes */
-  -ms-transform: scale(1.3); /* IE */
-  -moz-transform: scale(1.3); /* FF */
-  -webkit-transform: scale(1.3); /* Safari and Chrome */
-  -o-transform: scale(1.3); /* Opera */
-  transform: scale(1.3);
-  padding: 10px;
-}
-
-
-@media (max-width: 1560px) {
-  .sidebar-box {
-    max-height: 105px;
-    position: relative;
-    overflow: hidden;
-  }
-} 
-
-@media (max-width: 428px) {
-  .sidebar-box {
-    margin-top: -1rem;
-    max-height: 80px;
-  }
-}
-
-#search-year {
-  @media (max-width: 990px) {
-    display: none;
-  }
-}
 
 
 

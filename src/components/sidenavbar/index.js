@@ -96,6 +96,7 @@ const NavLink = styled(Link)`
   margin-left: 35px;
   padding: 5px 0;
   font-size: 1.2rem;
+  font-weight: 200;
 `
 
 // I created this styled component.

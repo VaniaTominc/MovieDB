@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
 import styled from 'styled-components'
@@ -13,11 +14,9 @@ const App = () => {
   return (
     <Router>
       <PageContainer>
-        {/* <SideNavBar {...this.props} /> */}
         <SideNavBar />
         <ContentWrapper>
           <Switch>            
-            {/* <Route path="/discover" component={Discover} {...this.props}/>      Original code */}
             <Discover path="/discover" />
           </Switch>
         </ContentWrapper>

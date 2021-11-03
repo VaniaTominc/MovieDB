@@ -1,4 +1,6 @@
 @import 'base/colos';
+@import 'base/spinner';
+@import 'base/custom';
 
 body {
   font-family: 'Lato', sans-serif;
@@ -12,10 +14,11 @@ body {
 
 a {
   text-decoration: none;
-  color: white;           // Originally this was not here.
+  color: white;       
 }
 
 input, textarea {
   font-family: 'Lato', sans-serif;
   background-color: transparent;
 }
+

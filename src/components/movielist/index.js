@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import MovieItem from '../movieitem'
 
-const MovieList = ({popular, movies, genres}) => {
+const MovieList = ({popular, movies}) => {
 
   // console.log('Incoming movies inside MovieList component >>>>', movies)
   // console.log('Incoming genres in MovieList >>>>', genres)
