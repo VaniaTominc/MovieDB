@@ -1,27 +1,27 @@
 import React from "react"
-import { MoviesWrapper } from "./style.js"
+import { MoviesWrapper, NoResult } from "./style.js"
 import MovieItem from "../movieitem"
 
-const MovieList = ({popular, movies}) => {
+const MovieList = ({movies}) => {
+
+  console.log('popular >>>>', movies)
 
   return (
     <MoviesWrapper>
-        {popular ? 
-        
-          <>
-            {popular && popular.map(item => {
-              return <MovieItem key={item.id} { ...item} />
-            })}
-          </>
 
-          : 
-        
-          <>
-            {movies && movies.map(item => {
-              return <MovieItem key={item.id} { ...item} />
-            })}
-          </>
-        }
+      {movies && movies.length > 1 ?
+      
+        <>
+          {movies && movies.map(item => {
+            return <MovieItem key={item.id} { ...item} />
+          })}
+        </>
+
+        :
+
+        <NoResult>No results found.</NoResult>
+    
+      }
         
     </MoviesWrapper>
   )
