@@ -17,13 +17,14 @@ Packages & Technologies used in the repo:
 - `node-sass`
 - `react-router-dom`
 - `styled-components`
+- `react-icons`
 
 ### Bugs, Challenges, Wins
 + #### Challenges & Bugs
-    - [Challenge] NavBar. It was not difficult to build it. I struggled and sadly did not find the solution for when the user clicks outside of the area, the navbar gets closed. I tried many approaches and looked into external libraries, but sadly, it did not work the way I wanted.
-    - [Challenge] Getting genres data. theMovieDB has different ways to access genres data. The easiest one is getting just the genre names (for example, listing filter options). When you access movie data, you get genres back only as an id. I tried to combine both options, but in the end, just decided to use another way. I called on the movie by its id and then automatically got its genres by the string name. 
-- [Bug] Getting genres data. My above solution is not optimal when searching for a movie. Sometimes (on the first search), it causes a memory leak in my application. It looks like my React state is trying to update on an unmounted component. I have to read more on a useEffect cleanup function or find a better and effective solution to getting genres data.
-    - [Bug] Filter icon on smaller devices (more a logic bug than anything else).
+    - [Challenge] `NavBar.` It was not difficult to build it. I struggled and sadly did not find the solution for when the user clicks outside of the area, the navbar gets closed. I tried many approaches and looked into external packages, but sadly, it did not work the way I wanted.
+    - [Challenge] `Getting genres data.` theMovieDB has different ways to access genres data. The easiest one is getting just the genre names (for example, listing filter options). When you access movie data, you get genres back only as an id. I tried to combine both options, but in the end, just decided to use another way. I called on the movie by its id and then automatically got its genres by the string name. 
+    - [Bug] `Getting genres data.` My above solution is not optimal when searching for a movie. Sometimes (on the first search), it causes a memory leak in my application. It looks like my React state is trying to update on an unmounted component. I have to read more on a useEffect cleanup function or find a better and effective solution to getting genres data.
+    - [Bug] `Filter icon` on smaller devices (more a logic bug than anything else).
 + #### Wins
     - Converting class-based components to arrow function-based components.
     - Using hooks.
