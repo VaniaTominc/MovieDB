@@ -33,8 +33,7 @@ const SearchFilters = ({languages, ratings, genres, searchMovies}) => {
 
         {/* On the right side of page, under the SearchBar component */}
         <SearchFiltersCont>
-          <input type="image" src={FilterImage} alt="Filter icon" name="filterIcon" onClick={handleClick} />
-          {/* <FilterIcon src={FilterImage} alt="Filter icon" onClick={handleClick} /> */}
+          <FilterIcon type="image" src={FilterImage} alt="Filter icon" name="filterIcon" onClick={handleClick} />
           <CategoryTitle>Movie</CategoryTitle>
           {/* Implement a component called "ExpandableFilter" and apply it to all filter categories */}
           <ExpandableFilter 
@@ -79,9 +78,14 @@ const SearchFiltersCont = styled.div`
 
   @media (max-width: 990px) {
     background-color: transparent;
+    padding: 0;
+    width: 30px;
     ${props => props.marginBottom && css`
+    flex: 1;
     margin-right: 15px;
     background-color: transparent;
+    flex: display;
+    flex-direction: column;
   `}
   }
 `
@@ -89,13 +93,12 @@ const SearchFiltersCont = styled.div`
 const CategoryTitle = styled.div`
   font-size: .9rem;
   font-weight: 800;
+  @media (max-width: 990px) {
+    display: none;
+  }
 `
 
-
-const FilterIcon = styled.img`
-  display: none;
-
-  @media (max-width: 990px) {
-    display: block;
-  }
+const FilterIcon = styled.input`
+  width: 30px;
+  
 `

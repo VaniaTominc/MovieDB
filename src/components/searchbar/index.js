@@ -44,10 +44,14 @@ const SearchBar = (props) => {
 export default SearchBar
 
 const InputText = styled.div`
-  border-bottom: 2px solid ${colors.primaryColor};
+  border-bottom: 1px solid ${colors.primaryColor};
   display: flex;
   align-items: flex-end;
   padding-bottom: 7px;
+  
+  @media (max-width: 990px) {
+    margin-top: -1rem;
+  }
 `
 
 const LensIcon = styled.img`
@@ -80,4 +84,5 @@ const Input = styled.input`
     -webkit-appearance: none; 
     margin: 0; 
   } 
+
 `

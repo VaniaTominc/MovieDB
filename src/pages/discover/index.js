@@ -114,6 +114,11 @@ const DiscoverWrapper = styled.main`
     padding: 47px 35px;
     margin-top: -1rem;
   }
+
+  @media (max-width: 428px) {
+    padding: 20px;
+    margin-top: 0;
+  }
 `
 
 // Originally it had only "font-weight: 900", I added the rest.
@@ -125,12 +130,18 @@ const TotalCounter = styled.div`
 
 const MovieResults = styled.div`
   flex: 12;
+  @media (max-width: 990px) {
+    margin-top: 1.5rem;
+  }
 `
 
 // Originally empty, I added styles.
 const MovieFilters = styled.div`
   flex: 3;
   padding-left: 15px;
+  @media (max-width: 990px) {
+    margin-top: 1rem;
+  }
 `
 
 const MobilePageTitle = styled.header`
@@ -142,6 +153,10 @@ const MobilePageTitle = styled.header`
     flex-wrap: wrap;
     padding-left: 60px;
     font-size: 1.6rem;
-    margin-top: -5px 
+    margin-top: -5px; 
+  }
+
+  @media (max-width: 428px) {
+    margin-top: .5rem;
   }
 `

@@ -105,8 +105,8 @@ const HamburgerIcon = styled.div`
   @media (max-width: 990px) {
     position: fixed;
     display: block;
-    left: ${({ isOpen }) => isOpen ? '230px' : '35px'};
-    top: 26px;
+    left: ${({ isOpen }) => isOpen ? '230px' : '28px'};
+    top: 24px;
 
     display: flex;
     flex-direction: column;
@@ -118,6 +118,11 @@ const HamburgerIcon = styled.div`
     cursor: pointer;
     padding: 0;
     z-index: 10;
+
+    background: ${({ isOpen }) => isOpen ? `${colors.sideNavBar}` : 'transparent'};
+    padding: .2rem 0 .2rem .4rem;
+    margin-left: ${({ isOpen }) => isOpen ? '3.1rem' : '0'}; 
+    transition: all 0.5s linear;
 
     &:focus {
       outline: none;
@@ -145,5 +150,9 @@ const HamburgerIcon = styled.div`
         transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
       }
     }
+  }
+
+  @media (max-width: 428px) {
+    left: ${({ isOpen }) => isOpen ? '230px' : '15px'};
   }
 `

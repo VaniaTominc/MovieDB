@@ -4,9 +4,10 @@ import styled from 'styled-components'
 
 import * as colors from "../../colors"
 
-const MovieItem = ({poster_path, original_title, overview, release_date, vote_average}) => {
+const MovieItem = ({poster_path, original_title, overview, release_date, vote_average, genre_ids}) => {
 
   // console.log('movies >>>>', movies)
+  console.log('movies >>>>', )
 
   const checkImage = () => {
     if (poster_path === null) {
@@ -34,6 +35,7 @@ const MovieItem = ({poster_path, original_title, overview, release_date, vote_av
           {/* <Genre>{genres.map(i => typeof i)}</Genre> */}
           {/* <Genre>{genres.map(i => typeof i.name)}</Genre> */}
           {/* <Genre>{item.map(j => j.genre_ids)}</Genre> */}
+          <Genre>{genre_ids}</Genre>
           <OverviewWrapper> 
             <div className='sidebar-box'>
               <OverviewContent>
@@ -75,6 +77,12 @@ const StyledImage = styled.img`
   height: 200px;
   object-fit: cover;
   padding: 20px;
+
+  @media (max-width: 428px) {
+    width: 85px;
+    height: 140px;
+    padding: 15px;
+  }
 `
 
 const HeadingRating = styled.div`
@@ -83,12 +91,20 @@ const HeadingRating = styled.div`
   padding-right: 20px;
   align-item: flex-end;
   align-items: center;
+
+  @media (max-width: 428px) {
+    padding-right: 12.5px;
+  }
 `
 
 const Heading = styled.h2`
   font-size: 1.4rem;
   font-weight: 800;
   line-height: 1;
+
+  @media (max-width: 428px) {
+    font-size: 1.02rem;
+  }
 `
 
 
@@ -105,6 +121,12 @@ const Rating = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 428px) {
+    margin-top: 5px;
+    font-size: .75rem;
+    padding: 3px 1.5px;
+  }
 `
 
 const OverviewWrapper = styled.div`
@@ -118,17 +140,33 @@ const OverviewContent = styled.p`
   padding-right: 20px;
   line-height: 1.3;
   font-size: .9rem;
+
+  @media (max-width: 428px) {
+    padding-right: 5px;
+    font-size: .8rem;
+  }
 `
 const ReleaseContent = styled.p`
   line-height: 0;
   font-size: .75rem;
   color: ${colors.primaryColor};
   margin-bottom: 30px;
+  opacity: .5;
+
+  @media (max-width: 428px) {
+    font-size: .6rem;
+    margin-bottom: 22px;
+  }
 `
-  // margin-top: 3.8rem;
 
 const Genre = styled.h4`
   color: ${colors.primaryColor};
   font-size: .75rem;
   margin-top: -.75rem;
+
+  @media (max-width: 428px) {
+    margin-top: -.3rem;
+    font-weight: 400;
+    font-size: .65rem;
+  }
 `
