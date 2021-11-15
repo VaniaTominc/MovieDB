@@ -5,18 +5,19 @@ import { Filters } from "./style"
 
 const ExpandableFilter = ({languages, ratings, genres, status}) => {
 
-  const [filtersShown, setFiltersShown] = useState(false)
+  const [filtersShown, setFiltersShown] = useState(null)
 
   useEffect(() => {
     setFiltersShown(status)
   }, [status])
 
   return ( 
-    <Filters filtersShown={filtersShown} onClick={() => setFiltersShown(!filtersShown)}>
+    <Filters filtersShown={filtersShown}>                 {/* Deleted onClick, because it was causing me problems, but solved the issue with closing accordion on smaller devices */}
       <Accordion 
         title="Select genre(s)"
-        content={genres.map(item => <CheckBox key={item.id} {...item} />)}
-        filtersShown={filtersShown}
+        content={genres.map(item => {
+          return <CheckBox key={item.id} {...item} /> 
+        })}
       />
 
       <Accordion
