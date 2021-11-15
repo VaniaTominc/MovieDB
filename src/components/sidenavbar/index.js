@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import { HamburgerIcon, 
   NavLink, 
   SideNavBarCont, 
@@ -14,19 +14,9 @@ const SideNavBar = () => {
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const ref = useRef()
-
-  useEffect(() => {
-    document.addEventListener("mousedown", (event) => {
-      if (!ref.current.contains(event.target)) {
-        setIsOpen(false)
-      }
-    })
-  })
-
   return (
-    <SideNavBarCont isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} ref={ref} >
-      <HamburgerIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} ref={ref} >
+    <SideNavBarCont isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      <HamburgerIcon isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
         <div />
         <div />
         <div />
